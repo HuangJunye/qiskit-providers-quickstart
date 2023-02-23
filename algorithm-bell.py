@@ -1,3 +1,4 @@
+# Build circuit
 from qiskit import QuantumCircuit
 circuit = QuantumCircuit(2, 2)
 circuit.h(0)
