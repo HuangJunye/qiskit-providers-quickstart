@@ -37,7 +37,6 @@ for provider, provider_info in providers_dict.items():
             code = code.replace('sampler', 'estimator')
             code = code.replace('Sampler', 'Estimator')
         temp = code.splitlines()
-        pprint(temp)
         code_dict[provider][algorithm] = ["&nbsp;" if line == "" else line for line in temp]
 
 

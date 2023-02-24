@@ -93,7 +93,6 @@
     "bell": [
       "from qiskit_braket_provider import AWSBraketProvider",
       "from qiskit.primitives import BackendSampler",
-      "&nbsp;",
       "provider = AWSBraketProvider()",
       "backend = provider.backends(\"SV1\")",
       "sampler = BackendSampler(backend)",
@@ -113,7 +112,6 @@
     "vqe": [
       "from qiskit_braket_provider import AWSBraketProvider",
       "from qiskit.primitives import BackendEstimator",
-      "&nbsp;",
       "provider = AWSBraketProvider()",
       "backend = provider.backends(\"SV1\")",
       "estimator = BackendEstimator(backend)",
@@ -144,7 +142,6 @@
     "bell": [
       "from qiskit_quantinuum import Quantinuum",
       "from qiskit.primitives import BackendSampler",
-      "&nbsp;",
       "backend = Quantinuum.backends(\"DEVICE_NAME\")",
       "sampler = BackendSampler(backend)",
       "&nbsp;",
@@ -163,7 +160,6 @@
     "vqe": [
       "from qiskit_quantinuum import Quantinuum",
       "from qiskit.primitives import BackendEstimator",
-      "&nbsp;",
       "backend = Quantinuum.backends(\"DEVICE_NAME\")",
       "estimator = BackendEstimator(backend)",
       "&nbsp;",
@@ -193,7 +189,6 @@
     "bell": [
       "from qiskit_ionq import IonQProvider",
       "from qiskit.primitives import BackendSampler",
-      "&nbsp;",
       "provider = IonQProvider(\"MY_IONQ_TOKEN\")",
       "backend = provider.get_backend(\"ionq_simulator\")",
       "sampler = BackendSampler(backend)",
@@ -213,7 +208,6 @@
     "vqe": [
       "from qiskit_ionq import IonQProvider",
       "from qiskit.primitives import BackendEstimator",
-      "&nbsp;",
       "provider = IonQProvider(\"MY_IONQ_TOKEN\")",
       "backend = provider.get_backend(\"ionq_simulator\")",
       "estimator = BackendEstimator(backend)",

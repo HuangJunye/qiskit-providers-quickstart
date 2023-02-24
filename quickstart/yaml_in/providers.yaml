@@ -16,7 +16,6 @@ qiskit-braket-provider:
   support_primitives: false
   code: |
     from qiskit_braket_provider import AWSBraketProvider
-
     provider = AWSBraketProvider()
     backend = provider.backends("SV1")
 
@@ -24,13 +23,11 @@ qiskit-quantinuum-provider:
   support_primitives: false
   code: |
     from qiskit_quantinuum import Quantinuum
-
     backend = Quantinuum.backends("DEVICE_NAME")
 
 qiskit-ionq-provider:
   support_primitives: false
   code: |
     from qiskit_ionq import IonQProvider
-
     provider = IonQProvider("MY_IONQ_TOKEN")
     backend = provider.get_backend("ionq_simulator")
