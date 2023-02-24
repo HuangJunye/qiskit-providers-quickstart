@@ -1,5 +1,5 @@
 bell:
-  primitives: sampler
+  primitive: sampler
   code: |
     # Build circuit
     from qiskit import QuantumCircuit
@@ -14,7 +14,7 @@ bell:
     print(quasi_dist)
 
 vqe:
-  primitives: estimator
+  primitive: estimator
   code: |
     from qiskit.quantum_info import SparsePauliOp
 
