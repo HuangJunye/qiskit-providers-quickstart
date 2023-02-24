@@ -12,8 +12,8 @@ with open(os.path.join(yaml_dir, 'providers'+'.yaml'), 'r') as yaml_in:
     providers_dict = yaml.safe_load(yaml_in)
 
 code = []
-code.append(providers_dict[0]['code'])
+code.append(providers_dict['qiskit-ibm-runtime']['code'])
 code.append('\n')
-code.append(algorithms_dict[0]['code'])
+code.append(algorithms_dict['bell']['code'])
 code = ''.join(code)
 print(code)
