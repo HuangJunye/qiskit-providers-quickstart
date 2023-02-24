@@ -3,8 +3,8 @@ import yaml
 import json
 
 script_dir = os.path.dirname(__file__)
-yaml_dir = os.path.join(script_dir, "yaml")
-json_dir = os.path.join(script_dir, "json")
+yaml_dir = os.path.join(script_dir, "yaml_in")
+json_dir = os.path.join(script_dir, "json_out")
 
 for filename in os.listdir(yaml_dir):
     with open(os.path.join(yaml_dir, filename), 'r') as yaml_in, open(os.path.join(json_dir, filename[:-4]+"json"), "w") as json_out:
@@ -13,6 +13,5 @@ for filename in os.listdir(yaml_dir):
             # split multiline string into a list of strings
             temp = provider['helloWorldExample'].splitlines()
             # replace empty line with "&nbsp;"
-            provider['helloWorldExample'] = ["&nbsp;" if item == "" else item for item in temp]
-
+            provider['helloWorldExample'] = ["&nbsp;" if line == "" else line for line in temp]
         json.dump(yaml_object, json_out, indent=2)
