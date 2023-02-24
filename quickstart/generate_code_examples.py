@@ -6,6 +6,7 @@ from pprint import pprint
 script_dir = os.path.dirname(__file__)
 yaml_dir = os.path.join(script_dir, "yaml_in")
 json_dir = os.path.join(script_dir, "json_out")
+py_dir = os.path.join(script_dir, "py_out")
 
 with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
     algorithms_dict = yaml.safe_load(yaml_in)
@@ -36,6 +37,11 @@ for provider, provider_info in providers_dict.items():
         if algorithms_dict[algorithm]['primitive'] == 'estimator':
             code = code.replace('sampler', 'estimator')
             code = code.replace('Sampler', 'Estimator')
+
+        with open(os.path.join(py_dir, provider+'-'+algorithm+'.py'), "w") as f:
+            f.write(code)
+
+
         temp = code.splitlines()
         code_dict[provider][algorithm] = ["&nbsp;" if line == "" else line for line in temp]
 
