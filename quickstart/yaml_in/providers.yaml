@@ -1,0 +1,20 @@
+- name: qiskit-terra
+  code: |
+    from qiskit.primitives import Sampler
+    sampler = Sampler()
+
+- name: qiskit-ibm-runtime
+  code: |
+    from qiskit_ibm_runtime import QiskitRuntimeService, Sampler
+    service = QiskitRuntimeService()
+    backend = service.backend("ibmq_qasm_simulator")
+    sampler = Sampler(session=backend)
+
+- name: qiskit-braket-provider
+  code: |
+    from qiskit_braket_provider import AWSBraketProvider
+    from qiskit.primitives import BackendSampler
+
+    provider = AWSBraketProvider()
+    backend = provider.backends("SV1")
+    sampler = BackendSampler(backend)
