@@ -72,5 +72,39 @@
       "counts = job.result().get_counts()",
       "print(counts)"
     ]
+  },
+  {
+    "title": "MQT DDSIM",
+    "image": null,
+    "description": "MQT DDSIM - A quantum circuit simulator based on decision diagrams written in C++",
+    "installation": "pip install mqt.ddsim",
+    "websiteCta": {
+      "label": "Website",
+      "url": "https://www.cda.cit.tum.de/research/quantum_simulation/"
+    },
+    "docsCta": {
+      "label": "Docs",
+      "url": "https://ddsim.readthedocs.io/en/latest/"
+    },
+    "sourceCta": {
+      "label": "GitHub",
+      "url": "https://github.com/cda-tum/ddsim"
+    },
+    "helloWorldExample": [
+      "from mqt import ddsim",
+      "backend = ddsim.DDSIMProvider().get_backend('qasm_simulator')",
+      "&nbsp;",
+      "# Build and transpile a circuit",
+      "from qiskit import QuantumCircuit, transpile",
+      "circuit = QuantumCircuit(2, 2)",
+      "circuit.h(0)",
+      "circuit.cx(0,1)",
+      "circuit.measure([0,1], [0,1])",
+      "transpiled_circuit = transpile(circuit, backend)",
+      "&nbsp;",
+      "job = backend.run(transpiled_circuit)",
+      "counts = job.result().get_counts()",
+      "print(counts)"
+    ]
   }
 ]
