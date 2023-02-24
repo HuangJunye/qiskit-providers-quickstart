@@ -19,18 +19,25 @@ for provider, provider_info in providers_dict.items():
 
     code_dict[provider] = {}
 
+    # insert BackendSampler lines if the provider does not support primitives
+    provider_code_temp = provider_info['code'].splitlines()
+    if not provider_info['support_primitives']:
+            
+        provider_code_temp.insert(1, 'from qiskit.primitives import BackendSampler')
+        provider_code_temp.append('sampler = BackendSampler(backend)')
+
     for algorithm, algorithm_info in algorithms_dict.items():
-        code = []
-        code.append(providers_dict[provider]['code'])
-        code.append('\n')
-        code.append(algorithms_dict[algorithm]['code'])
-        code = ''.join(code)
+        algorithm_code_temp = algorithm_info['code'].splitlines()
+
+        code = provider_code_temp + [''] + algorithm_code_temp
+        code = '\n'.join(code)
+        #print(code)
         # if the algorithm use estimator instead of the default sampler
         if algorithms_dict[algorithm]['primitive'] == 'estimator':
             code = code.replace('sampler', 'estimator')
             code = code.replace('Sampler', 'Estimator')
-
-        temp= code.splitlines()
+        temp = code.splitlines()
+        pprint(temp)
         code_dict[provider][algorithm] = ["&nbsp;" if line == "" else line for line in temp]
 
 

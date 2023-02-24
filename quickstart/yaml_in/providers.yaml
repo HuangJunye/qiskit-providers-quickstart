@@ -1,9 +1,11 @@
 qiskit-terra:
+  support_primitives: true
   code: |
     from qiskit.primitives import Sampler
     sampler = Sampler()
 
 qiskit-ibm-runtime:
+  support_primitives: true
   code: |
     from qiskit_ibm_runtime import QiskitRuntimeService, Sampler
     service = QiskitRuntimeService()
@@ -11,10 +13,24 @@ qiskit-ibm-runtime:
     sampler = Sampler(session=backend)
 
 qiskit-braket-provider:
+  support_primitives: false
   code: |
     from qiskit_braket_provider import AWSBraketProvider
-    from qiskit.primitives import BackendSampler
 
     provider = AWSBraketProvider()
     backend = provider.backends("SV1")
-    sampler = BackendSampler(backend)
+
+qiskit-quantinuum-provider:
+  support_primitives: false
+  code: |
+    from qiskit_quantinuum import Quantinuum
+
+    backend = Quantinuum.backends("DEVICE_NAME")
+
+qiskit-ionq-provider:
+  support_primitives: false
+  code: |
+    from qiskit_ionq import IonQProvider
+
+    provider = IonQProvider("MY_IONQ_TOKEN")
+    backend = provider.get_backend("ionq_simulator")
