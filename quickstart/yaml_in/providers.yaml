@@ -41,7 +41,7 @@ qiskit-quantinuum-provider:
 qiskit-aer:
   support_primitives: true
   code: |
-    from qiskit_aer import Sampler
+    from qiskit_aer.primitives import Sampler
     sampler = Sampler()
 
 # multiplatforums
