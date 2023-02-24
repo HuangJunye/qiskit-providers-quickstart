@@ -1,5 +1,7 @@
-from qiskit_aer.primitives import Sampler
-sampler = Sampler()
+from cusvaer.backends import StatevectorSimulator
+from qiskit.primitives import BackendSampler
+backend = StatevectorSimulator()
+sampler = BackendSampler(backend)
 
 # Build circuit
 from qiskit import QuantumCircuit

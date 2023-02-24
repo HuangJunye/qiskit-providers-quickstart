@@ -1,5 +1,7 @@
-from qiskit_aer.primitives import Estimator
-estimator = Estimator()
+from cusvaer.backends import StatevectorSimulator
+from qiskit.primitives import BackendEstimator
+backend = StatevectorSimulator()
+estimator = BackendEstimator(backend)
 
 from qiskit.quantum_info import SparsePauliOp
 

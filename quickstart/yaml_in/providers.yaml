@@ -44,7 +44,20 @@ qiskit-aer:
     from qiskit_aer.primitives import Sampler
     sampler = Sampler()
 
-# multiplatforums
+cuquantum:
+  support_primitives: false
+  code: |
+    from cusvaer.backends import StatevectorSimulator
+    backend = StatevectorSimulator()
+
+# multiplatforms
+
+azure-quantum:
+  support_primitives: false
+  code: |
+    from azure.quantum.qiskit import AzureQuantumProvider
+    provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+    backend = provider.get_backend("ionq.simulator")
 
 qiskit-braket-provider:
   support_primitives: false

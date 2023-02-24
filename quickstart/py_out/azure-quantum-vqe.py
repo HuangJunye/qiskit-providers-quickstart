@@ -1,5 +1,8 @@
-from qiskit_aer.primitives import Estimator
-estimator = Estimator()
+from azure.quantum.qiskit import AzureQuantumProvider
+from qiskit.primitives import BackendEstimator
+provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+backend = provider.get_backend("ionq.simulator")
+estimator = BackendEstimator(backend)
 
 from qiskit.quantum_info import SparsePauliOp
 

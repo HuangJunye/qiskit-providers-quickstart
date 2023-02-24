@@ -1,5 +1,8 @@
-from qiskit_aer.primitives import Sampler
-sampler = Sampler()
+from azure.quantum.qiskit import AzureQuantumProvider
+from qiskit.primitives import BackendSampler
+provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+backend = provider.get_backend("ionq.simulator")
+sampler = BackendSampler(backend)
 
 # Build circuit
 from qiskit import QuantumCircuit
