@@ -15,9 +15,7 @@
   sourceCta:
     label: GitHub
     url: https://github.com/Qiskit/qiskit-ibm-runtime
-  code: 
-    support_primitives: true
-    support_backend_run: false
+  code:
     sampler: |-
       from qiskit_ibm_runtime import QiskitRuntimeService, Sampler
       service = QiskitRuntimeService()
@@ -39,8 +37,6 @@
     label: GitHub
     url: https://github.com/Qiskit/qiskit-ibm-provider
   code: 
-    support_primitives: false
-    support_backend_run: true
     backend: |-
       from qiskit_ibm_provider import IBMProvider
       provider = IBMProvider()
@@ -63,8 +59,6 @@
     label: GitHub
     url: https://github.com/Qiskit/qiskit-aer
   code:
-    support_primitives: true
-    support_backend_run: true
     sampler: |-
       from qiskit_aer.primitives import Sampler
       sampler = Sampler()

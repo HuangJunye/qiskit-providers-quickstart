@@ -27,14 +27,14 @@ for provider in providers_list:
 
         if algorithm['runMethod'] == 'backend':
             # backend.run
-            if provider['code']['support_backend_run']:
+            if provider['code'].get('backend'):
                 provider_code = provider['code']['backend'].splitlines()
             else:
-                # skip if provider does not support backend run
+                # create empty code lines if provider does not support backend run
                 algorithm_code = []
         else:
             # primitive.run
-            if provider['code']['support_primitives']:
+            if provider['code'].get('sampler'):
                 # native primitive support
                 provider_code = provider['code']['sampler'].splitlines()
             else:
