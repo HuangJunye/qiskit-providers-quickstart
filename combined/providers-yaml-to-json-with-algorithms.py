@@ -19,6 +19,7 @@ code_examples_list = []
 for provider in providers_list:
     
     provider_code = []
+    provider['codeExamples'] = []
 
     for algorithm in algorithms_list:
 
@@ -60,10 +61,10 @@ for provider in providers_list:
 
             temp = full_code.splitlines()
             algorithm['full_code'] = ["&nbsp;" if line == "" else line for line in temp]
-
+            algorithm_entry = algorithm.copy()
+            del algorithm_entry['code']
+            provider['codeExamples'].append(algorithm_entry)
             code_examples_list.append(algorithm)
 
-pprint(code_examples_list)
-
 json_out = open(os.path.join(json_dir, "test.json"), "w")
-json.dump(code_examples_list, json_out, indent=2)
+json.dump(providers_list, json_out, indent=2)
