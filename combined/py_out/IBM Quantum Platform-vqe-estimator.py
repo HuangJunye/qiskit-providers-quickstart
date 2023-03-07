@@ -1,6 +1,8 @@
 from qiskit_ibm_provider import IBMProvider
+from qiskit.primitives import BackendEstimator
 provider = IBMProvider()
 backend = provider.get_backend("ibmq_qasm_simulator")
+estimator = BackendEstimator(backend)
 
 from qiskit.quantum_info import SparsePauliOp
 

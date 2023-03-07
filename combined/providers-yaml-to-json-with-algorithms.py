@@ -23,38 +23,45 @@ for provider in providers_list:
     for algorithm in algorithms_list:
 
         algorithm_code = []
+        algorithm_code = algorithm['code'].splitlines()
 
         if algorithm['runMethod'] == 'backend':
+            # backend.run
             if provider['code']['support_backend_run']:
                 provider_code = provider['code']['backend'].splitlines()
+            else:
+                # skip if provider does not support backend run
+                algorithm_code = []
         else:
+            # primitive.run
             if provider['code']['support_primitives']:
+                # native primitive support
                 provider_code = provider['code']['sampler'].splitlines()
             else:
+                # no native primitive support, wrap backend into backend primitive
                 provider_code = provider['code']['backend'].splitlines()
                 provider_code.insert(1, 'from qiskit.primitives import BackendSampler')
                 provider_code.append('sampler = BackendSampler(backend)')
 
-        algorithm_code = algorithm['code'].splitlines()
-        
-        code = provider_code + [''] + algorithm_code
-        code = '\n'.join(code)
+        full_code = provider_code + [''] + algorithm_code
+        full_code = '\n'.join(full_code)
 
         if algorithm['runMethod'] == 'estimator':
-            code = code.replace('sampler', 'estimator')
-            code = code.replace('Sampler', 'Estimator')
+            full_code = full_code.replace('sampler', 'estimator')
+            full_code = full_code.replace('Sampler', 'Estimator')
 
         provider_name = provider['title']
         algorithm_name = algorithm['name']
         algorithm_run_method = algorithm['runMethod']
 
-        with open(os.path.join(py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
-            f.write(code)
+        if full_code:
+            with open(os.path.join(py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
+                f.write(full_code)
 
-        temp = code.splitlines()
-        algorithm['full_code'] = ["&nbsp;" if line == "" else line for line in temp]
+            temp = full_code.splitlines()
+            algorithm['full_code'] = ["&nbsp;" if line == "" else line for line in temp]
 
-        code_examples_list.append(algorithm)
+            code_examples_list.append(algorithm)
 
 pprint(code_examples_list)
 

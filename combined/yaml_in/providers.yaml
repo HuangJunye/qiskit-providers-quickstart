@@ -39,12 +39,13 @@
     label: GitHub
     url: https://github.com/Qiskit/qiskit-ibm-provider
   code: 
-    support_primitives: true
-    support_backend_run: false
-    sampler: |-
+    support_primitives: false
+    support_backend_run: true
+    backend: |-
       from qiskit_ibm_provider import IBMProvider
       provider = IBMProvider()
       backend = provider.get_backend("ibmq_qasm_simulator")
+
 
 - title: Qiskit Aer
   category: simulator
@@ -63,7 +64,10 @@
     url: https://github.com/Qiskit/qiskit-aer
   code:
     support_primitives: true
-    support_backend_run: false
+    support_backend_run: true
     sampler: |-
       from qiskit_aer.primitives import Sampler
       sampler = Sampler()
+    backend: |-
+      from qiskit_aer import AerSimulator
+      backend = AerSimulator()
