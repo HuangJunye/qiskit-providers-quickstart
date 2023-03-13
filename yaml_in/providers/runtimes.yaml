@@ -1,4 +1,4 @@
-id: runtimesId
+id: runtimes
 title: Quantum Runtimes
 description: Quantum runtimes are services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms. 
 providers:
