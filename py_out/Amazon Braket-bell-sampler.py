@@ -1,3 +1,10 @@
+from qiskit_braket_provider import AWSBraketProvider
+from qiskit.primitives import BackendSampler
+provider = AWSBraketProvider()
+backend = provider.backends("SV1")
+sampler = BackendSampler(backend)
+
+# Build circuit
 from qiskit import QuantumCircuit
 circuit = QuantumCircuit(2, 2)
 circuit.h(0)
