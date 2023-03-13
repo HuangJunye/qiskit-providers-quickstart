@@ -92,6 +92,197 @@
           ]
         }
       ]
+    },
+    {
+      "title": "NVIDIA cuQuantum Appliance",
+      "image": null,
+      "description": "The NVIDIA cuQuantum Appliance is a highly performant multi-GPU multi-node solution for quantum circuit simulation.",
+      "installation": "docker pull nvcr.io/nvidia/cuquantum-appliance",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://developer.nvidia.com/cuquantum-sdk"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://docs.nvidia.com/cuda/cuquantum/index.html"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/NVIDIA/cuQuantum"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from cusvaer.backends import StatevectorSimulator",
+            "backend = StatevectorSimulator()",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from cusvaer.backends import StatevectorSimulator",
+            "from qiskit.primitives import BackendSampler",
+            "backend = StatevectorSimulator()",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from cusvaer.backends import StatevectorSimulator",
+            "from qiskit.primitives import BackendEstimator",
+            "backend = StatevectorSimulator()",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "MQT DDSIM",
+      "image": null,
+      "description": "MQT DDSIM - A quantum circuit simulator based on decision diagrams written in C++",
+      "installation": "pip install mqt.ddsim",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.cda.cit.tum.de/research/quantum_simulation/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://ddsim.readthedocs.io/en/latest/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/cda-tum/ddsim"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from mqt import ddsim",
+            "provider = ddsim.DDSIMProvider()",
+            "backend = provider.get_backend('qasm_simulator')",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from mqt import ddsim",
+            "from qiskit.primitives import BackendSampler",
+            "provider = ddsim.DDSIMProvider()",
+            "backend = provider.get_backend('qasm_simulator')",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from mqt import ddsim",
+            "from qiskit.primitives import BackendEstimator",
+            "provider = ddsim.DDSIMProvider()",
+            "backend = provider.get_backend('qasm_simulator')",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
     }
   ]
 }
