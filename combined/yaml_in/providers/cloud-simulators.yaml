@@ -1,6 +1,6 @@
-id: hardwareId
-title: Quantum Hardware
-description: Quantum hardware are services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
+id: cloud_simulatorsId
+title: Cloud Simulators
+description: Cloud simulators are cloud services that allow you to simulate quantum programs in high performance computers.
 providers:
   - title: IBM Quantum Platform
     image: static/images/providers/qiskit-ibm-provider.png
