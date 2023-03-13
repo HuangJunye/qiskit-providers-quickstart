@@ -1,11 +1,11 @@
 {
-  "id": "cloud_simulatorsId",
+  "id": "cloud-simulators",
   "title": "Cloud Simulators",
   "description": "Cloud simulators are cloud services that allow you to simulate quantum programs in high performance computers.",
   "providers": [
     {
       "title": "IBM Quantum Platform",
-      "image": "static/images/providers/qiskit-ibm-provider.png",
+      "image": "images/providers/qiskit-ibm-provider.png",
       "description": "IBM Quantum platform offers access to IBM Quantum systems and simulators.",
       "installation": "pip install qiskit-ibm-provider",
       "websiteCta": {
