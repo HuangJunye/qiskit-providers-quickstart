@@ -20,10 +20,6 @@
         "label": "GitHub",
         "url": "https://github.com/Qiskit/qiskit-aer"
       },
-      "code": {
-        "sampler": "from qiskit_aer.primitives import Sampler\nsampler = Sampler()",
-        "backend": "from qiskit_aer import AerSimulator\nbackend = AerSimulator()"
-      },
       "codeExamples": [
         {
           "name": "bell",

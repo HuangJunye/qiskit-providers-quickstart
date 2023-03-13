@@ -20,9 +20,6 @@
         "label": "GitHub",
         "url": "https://github.com/Qiskit/qiskit-ibm-runtime"
       },
-      "code": {
-        "sampler": "from qiskit_ibm_runtime import QiskitRuntimeService, Sampler\nservice = QiskitRuntimeService()\nbackend = service.backend(\"ibmq_qasm_simulator\")\nsampler = Sampler(session=backend)"
-      },
       "codeExamples": [
         {
           "name": "bell",

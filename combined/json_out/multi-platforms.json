@@ -20,9 +20,6 @@
         "label": null,
         "url": null
       },
-      "code": {
-        "backend": "from azure.quantum.qiskit import AzureQuantumProvider\nprovider = AzureQuantumProvider(resource_id=\"MY_RESOURCE_ID\",location=\"MY_LOCATION\")\nbackend = provider.get_backend(\"ionq.simulator\")"
-      },
       "codeExamples": [
         {
           "name": "bell",
@@ -119,9 +116,6 @@
       "sourceCta": {
         "label": "GitHub",
         "url": "https://github.com/qiskit-community/qiskit-braket-provider"
-      },
-      "code": {
-        "backend": "from qiskit_braket_provider import AWSBraketProvider\nprovider = AWSBraketProvider()\nbackend = provider.backends(\"SV1\")"
       },
       "codeExamples": [
         {

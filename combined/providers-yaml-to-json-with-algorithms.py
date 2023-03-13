@@ -68,5 +68,7 @@ for category in os.listdir(providers_dir):
                     del algorithm_entry['code']
                     provider['codeExamples'].append(algorithm_entry)
                     code_examples_list.append(algorithm)
+            
+            del provider['code']
 
         json.dump(category_dict, json_out, indent=2)

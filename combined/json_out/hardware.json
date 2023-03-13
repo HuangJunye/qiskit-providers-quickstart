@@ -20,9 +20,6 @@
         "label": "GitHub",
         "url": "https://github.com/Qiskit/qiskit-ibm-provider"
       },
-      "code": {
-        "backend": "from qiskit_ibm_provider import IBMProvider\nprovider = IBMProvider()\nbackend = provider.get_backend(\"ibmq_qasm_simulator\")"
-      },
       "codeExamples": [
         {
           "name": "bell",
