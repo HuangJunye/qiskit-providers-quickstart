@@ -1,7 +1,6 @@
-from qiskit_ibm_provider import IBMProvider
-
-provider = IBMProvider()
-backend = provider.get_backend("ibmq_qasm_simulator")
+from qiskit_braket_provider import AWSBraketProvider
+provider = AWSBraketProvider()
+backend = provider.backends("SV1")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit

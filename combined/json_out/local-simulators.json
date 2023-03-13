@@ -1,0 +1,97 @@
+{
+  "id": "simulatorsId",
+  "title": "Local Simulators",
+  "description": "Local simulators are software packages that allow users to simulate quantum programs in a local computer.",
+  "providers": [
+    {
+      "title": "Qiskit Aer",
+      "image": null,
+      "description": "Qiskit Aer is a high performance simulator for quantum circuits that includes noise models.",
+      "installation": "pip install qiskit-aer",
+      "websiteCta": {
+        "label": null,
+        "url": null
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit.org/documentation/aer/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/Qiskit/qiskit-aer"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_aer import AerSimulator",
+            "backend = AerSimulator()",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from qiskit_aer.primitives import Sampler",
+            "sampler = Sampler()",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from qiskit_aer.primitives import Estimator",
+            "estimator = Estimator()",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
+    }
+  ]
+}

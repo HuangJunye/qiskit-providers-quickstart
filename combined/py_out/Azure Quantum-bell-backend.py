@@ -1,7 +1,6 @@
-from qiskit_ibm_provider import IBMProvider
-
-provider = IBMProvider()
-backend = provider.get_backend("ibmq_qasm_simulator")
+from azure.quantum.qiskit import AzureQuantumProvider
+provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+backend = provider.get_backend("ionq.simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit

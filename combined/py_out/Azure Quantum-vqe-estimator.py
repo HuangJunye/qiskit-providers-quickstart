@@ -1,8 +1,7 @@
-from qiskit_ibm_provider import IBMProvider
+from azure.quantum.qiskit import AzureQuantumProvider
 from qiskit.primitives import BackendEstimator
-
-provider = IBMProvider()
-backend = provider.get_backend("ibmq_qasm_simulator")
+provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+backend = provider.get_backend("ionq.simulator")
 estimator = BackendEstimator(backend)
 
 from qiskit.quantum_info import SparsePauliOp

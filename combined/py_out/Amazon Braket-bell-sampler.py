@@ -1,8 +1,7 @@
-from qiskit_ibm_provider import IBMProvider
+from qiskit_braket_provider import AWSBraketProvider
 from qiskit.primitives import BackendSampler
-
-provider = IBMProvider()
-backend = provider.get_backend("ibmq_qasm_simulator")
+provider = AWSBraketProvider()
+backend = provider.backends("SV1")
 sampler = BackendSampler(backend)
 
 # Build circuit
