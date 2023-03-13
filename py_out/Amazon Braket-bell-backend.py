@@ -3,7 +3,7 @@ provider = AWSBraketProvider()
 backend = provider.backends("SV1")
 
 # Build and transpile circuit
-from qiskit import QuantumCircuit
+from qiskit import QuantumCircuit, transpile
 circuit = QuantumCircuit(2, 2)
 circuit.h(0)
 circuit.cx(0,1)
