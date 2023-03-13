@@ -12,9 +12,10 @@ py_dir = os.path.join(script_dir, "py_out")
 with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
     algorithms_list = yaml.safe_load(yaml_in)
 
-for filename in os.listdir(providers_dir):
-    with open(os.path.join(providers_dir, filename), 'r')as yaml_in, open(os.path.join(json_dir, filename[:-4]+"json"), "w") as json_out:
-        providers_list = yaml.safe_load(yaml_in)
+for category in os.listdir(providers_dir):
+    with open(os.path.join(providers_dir, category), 'r')as yaml_in, open(os.path.join(json_dir, category[:-4]+"json"), "w") as json_out:
+        category_dict = yaml.safe_load(yaml_in)
+        providers_list = category_dict['providers']
 
         code_examples_list = []
 
@@ -62,10 +63,10 @@ for filename in os.listdir(providers_dir):
                         f.write(full_code)
 
                     temp = full_code.splitlines()
-                    algorithm['full_code'] = ["&nbsp;" if line == "" else line for line in temp]
+                    algorithm['fullCode'] = ["&nbsp;" if line == "" else line for line in temp]
                     algorithm_entry = algorithm.copy()
                     del algorithm_entry['code']
                     provider['codeExamples'].append(algorithm_entry)
                     code_examples_list.append(algorithm)
 
-        json.dump(providers_list, json_out, indent=2)
+        json.dump(category_dict, json_out, indent=2)
