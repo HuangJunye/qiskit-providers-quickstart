@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_iqm import IQMProvider
+provider = IQMProvider(iqm_server_url)
+backend = provider.get_backend()
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

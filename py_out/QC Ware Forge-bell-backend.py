@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_qcware import QcwareProvider
+provider = QcwareProvider()
+backend = provider.get_backend('forge_statevector')
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

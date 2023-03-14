@@ -1,6 +1,5 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from quac_qiskit import Quac
+backend = Quac.get_backend("fake_vigo_density_simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

@@ -1,6 +1,9 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+import strangeworks
+from strangeworks_qiskit import StrangeworksProvider
+# get your API key from the Strangeworks Portal
+strangeworks.authenticate(api_key="your-api-key")
+provider = StrangeworksProvider()
+backend = provider.get_backend("ibmq_qasm_simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

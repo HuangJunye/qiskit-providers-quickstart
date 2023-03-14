@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_ionq import IonQProvider
+provider = IonQProvider("MY_IONQ_TOKEN")
+backend = provider.get_backend("ionq_simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

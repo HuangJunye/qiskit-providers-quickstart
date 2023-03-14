@@ -1,6 +1,5 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from cusvaer.backends import StatevectorSimulator
+backend = StatevectorSimulator()
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

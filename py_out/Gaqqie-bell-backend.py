@@ -1,6 +1,8 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from gaqqie_door import QiskitGaqqie
+# rewrite to the endpoint URL of the user API
+url = "https://<api-id>.execute-api.<region>.amazonaws.com/<stage>"
+QiskitGaqqie.enable_account(url)
+backend = QiskitGaqqie.get_backend("qiskit_simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_rigetti import RigettiQCSProvider
+provider = RigettiQCSProvider()
+backend = provider.get_backend(name="Aspen-9")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

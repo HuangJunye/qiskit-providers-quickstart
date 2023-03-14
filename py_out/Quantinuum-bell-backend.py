@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_quantinuum import Quantinuum
+Quantinuum.save_account("username@company.com")
+backend = Quantinuum.get_backend("DEVICE_NAME")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

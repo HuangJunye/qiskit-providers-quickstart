@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_aqt_provider import AQTProvider
+aqt = AQTProvider('MY_TOKEN')
+backend = aqt.get_backend('aqt_qasm_simulator')
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile

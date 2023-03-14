@@ -1,6 +1,6 @@
-from qiskit_braket_provider import AWSBraketProvider
-provider = AWSBraketProvider()
-backend = provider.backends("SV1")
+from qiskit_superstaq import SuperstaQProvider
+provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
+backend = provider.get_backend("ibmq_qasm_simulator")
 
 # Build and transpile circuit
 from qiskit import QuantumCircuit, transpile
