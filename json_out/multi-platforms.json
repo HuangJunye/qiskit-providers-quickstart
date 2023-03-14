@@ -293,6 +293,206 @@
           ]
         }
       ]
+    },
+    {
+      "title": "QC Ware Forge",
+      "image": null,
+      "description": null,
+      "installation": null,
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://forge.qcware.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://github.com/qcware/qiskit_qcware/blob/master/notebooks/basic_demo.ipynb"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/qcware/qiskit_qcware"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_qcware import QcwareProvider",
+            "provider = QcwareProvider()",
+            "backend = provider.get_backend('forge_statevector')",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from qiskit_qcware import QcwareProvider",
+            "from qiskit.primitives import BackendSampler",
+            "provider = QcwareProvider()",
+            "backend = provider.get_backend('forge_statevector')",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from qiskit_qcware import QcwareProvider",
+            "from qiskit.primitives import BackendEstimator",
+            "provider = QcwareProvider()",
+            "backend = provider.get_backend('forge_statevector')",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Gaqqie",
+      "image": null,
+      "description": "An open-source quantum computer cloud platform",
+      "installation": "pip install gaqqie-door",
+      "websiteCta": {
+        "label": "Website",
+        "url": null
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": null
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/gaqqie/gaqqie"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from gaqqie_door import QiskitGaqqie",
+            "# rewrite to the endpoint URL of the user API",
+            "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
+            "QiskitGaqqie.enable_account(url)",
+            "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from gaqqie_door import QiskitGaqqie",
+            "from qiskit.primitives import BackendSampler",
+            "# rewrite to the endpoint URL of the user API",
+            "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
+            "QiskitGaqqie.enable_account(url)",
+            "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from gaqqie_door import QiskitGaqqie",
+            "from qiskit.primitives import BackendEstimator",
+            "# rewrite to the endpoint URL of the user API",
+            "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
+            "QiskitGaqqie.enable_account(url)",
+            "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
     }
   ]
 }

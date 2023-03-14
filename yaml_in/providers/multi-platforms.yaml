@@ -58,3 +58,41 @@ providers:
         from qiskit_superstaq import SuperstaQProvider
         provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
         backend = provider.get_backend("ibmq_qasm_simulator")
+  - title: QC Ware Forge
+    image: null
+    description: null
+    installation: 
+    websiteCta:
+      label: Website
+      url: https://forge.qcware.com/
+    docsCta:
+      label: Docs
+      url: https://github.com/qcware/qiskit_qcware/blob/master/notebooks/basic_demo.ipynb
+    sourceCta:
+      label: GitHub
+      url: https://github.com/qcware/qiskit_qcware
+    code:
+      backend: |-
+        from qiskit_qcware import QcwareProvider
+        provider = QcwareProvider()
+        backend = provider.get_backend('forge_statevector')
+  - title: Gaqqie
+    image: null
+    description: An open-source quantum computer cloud platform
+    installation: pip install gaqqie-door
+    websiteCta:
+      label: Website
+      url: null
+    docsCta:
+      label: Docs
+      url: null
+    sourceCta:
+      label: GitHub
+      url: https://github.com/gaqqie/gaqqie
+    code:
+      backend: |-
+        from gaqqie_door import QiskitGaqqie
+        # rewrite to the endpoint URL of the user API
+        url = "https://<api-id>.execute-api.<region>.amazonaws.com/<stage>"
+        QiskitGaqqie.enable_account(url)
+        backend = QiskitGaqqie.get_backend("qiskit_simulator")
