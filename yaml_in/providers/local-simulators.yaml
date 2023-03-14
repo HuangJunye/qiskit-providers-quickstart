@@ -59,4 +59,23 @@ providers:
         from mqt import ddsim
         provider = ddsim.DDSIMProvider()
         backend = provider.get_backend('qasm_simulator')
-    
+  - title: QuaC
+    image: null
+    description: Time dependent open quantum systems solver.
+    installation: |-
+      git clone https://github.com/0tt3r/QuaC-qiskit
+      cd QuaC-qiskit
+      pip install .
+    websiteCta:
+      label: Website
+      url: null
+    docsCta:
+      label: Docs
+      url: null
+    sourceCta:
+      label: GitHub
+      url: https://github.com/0tt3r/QuaC-qiskit
+    code:
+      backend: |-
+        from quac_qiskit import Quac
+        backend = Quac.get_backend("fake_vigo_density_simulator")
