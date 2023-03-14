@@ -393,6 +393,200 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Rigetti",
+      "image": null,
+      "description": null,
+      "installation": "pip install qiskit-rigetti",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.rigetti.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit-rigetti.readthedocs.io/en/latest/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/rigetti/qiskit-rigetti"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_rigetti import RigettiQCSProvider",
+            "provider = RigettiQCSProvider()",
+            "backend = provider.get_backend(name=\"Aspen-9\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from qiskit_rigetti import RigettiQCSProvider",
+            "from qiskit.primitives import BackendSampler",
+            "provider = RigettiQCSProvider()",
+            "backend = provider.get_backend(name=\"Aspen-9\")",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from qiskit_rigetti import RigettiQCSProvider",
+            "from qiskit.primitives import BackendEstimator",
+            "provider = RigettiQCSProvider()",
+            "backend = provider.get_backend(name=\"Aspen-9\")",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "IQM",
+      "image": null,
+      "description": "Qiskit adapter for IQM\u2019s quantum computers.",
+      "installation": "pip install qiskit-iqm",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.meetiqm.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://iqm-finland.github.io/qiskit-on-iqm/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/iqm-finland/qiskit-on-iqm"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_iqm import IQMProvider",
+            "provider = IQMProvider(iqm_server_url)",
+            "backend = provider.get_backend()",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        },
+        {
+          "name": "bell",
+          "runMethod": "sampler",
+          "fullCode": [
+            "from qiskit_iqm import IQMProvider",
+            "from qiskit.primitives import BackendSampler",
+            "provider = IQMProvider(iqm_server_url)",
+            "backend = provider.get_backend()",
+            "sampler = BackendSampler(backend)",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Run the circuit and get result distribution",
+            "job = sampler.run(circuit)",
+            "quasi_dist = job.result().quasi_dists[0]",
+            "print(quasi_dist)"
+          ]
+        },
+        {
+          "name": "vqe",
+          "runMethod": "estimator",
+          "fullCode": [
+            "from qiskit_iqm import IQMProvider",
+            "from qiskit.primitives import BackendEstimator",
+            "provider = IQMProvider(iqm_server_url)",
+            "backend = provider.get_backend()",
+            "estimator = BackendEstimator(backend)",
+            "&nbsp;",
+            "from qiskit.quantum_info import SparsePauliOp",
+            "&nbsp;",
+            "H2_op = SparsePauliOp.from_list([",
+            "    (\"II\", -1.052373245772859),",
+            "    (\"IZ\", 0.39793742484318045),",
+            "    (\"ZI\", -0.39793742484318045),",
+            "    (\"ZZ\", -0.01128010425623538),",
+            "    (\"XX\", 0.18093119978423156)",
+            "])",
+            "&nbsp;",
+            "# Calculate ground state energy using VQE",
+            "from qiskit.circuit.library import TwoLocal",
+            "from qiskit.algorithms.optimizers import SLSQP",
+            "from qiskit.algorithms.minimum_eigensolvers import VQE",
+            "&nbsp;",
+            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
+            "optimizer = SLSQP(maxiter=1000)",
+            "vqe = VQE(estimator, ansatz, optimizer)",
+            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
+            "print(result.eigenvalue)"
+          ]
+        }
+      ]
     }
   ]
 }
