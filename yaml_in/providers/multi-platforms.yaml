@@ -40,3 +40,21 @@ providers:
         from qiskit_braket_provider import AWSBraketProvider
         provider = AWSBraketProvider()
         backend = provider.backends("SV1")
+  - title: SuperstaQ
+    image: null
+    description: A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
+    installation: pip install qiskit-superstaq
+    websiteCta:
+      label: Website
+      url: https://www.super.tech/about-superstaq/
+    docsCta:
+      label: Docs
+      url: null
+    sourceCta:
+      label: GitHub
+      url: https://github.com/SupertechLabs/qiskit-superstaq
+    code:
+      backend: |-
+        from qiskit_superstaq import SuperstaQProvider
+        provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
+        backend = provider.get_backend("ibmq_qasm_simulator")
