@@ -10,7 +10,7 @@
       "installation": "pip install qiskit-ibm-provider",
       "websiteCta": {
         "label": "Website",
-        "url": "https://www.ibm.com/quantum/systems"
+        "url": "https://quantum-computing.ibm.com/services/resources?tab=simulators"
       },
       "docsCta": {
         "label": "Docs",
