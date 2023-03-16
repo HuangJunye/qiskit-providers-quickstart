@@ -1,6 +1,6 @@
 id: hardware
 title: Quantum Hardware
-description: Quantum hardware are services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
+description: Services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
 providers:
   - title: IBM Quantum Platform
     image: /images/providers/qiskit-ibm-provider.png

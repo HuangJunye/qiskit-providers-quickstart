@@ -1,6 +1,6 @@
 id: cloud-simulators
 title: Cloud Simulators
-description: Cloud simulators are cloud services that allow you to simulate quantum programs in high performance computers.
+description: Cloud services that allow you to simulate quantum programs in high performance computers.
 providers:
   - title: IBM Quantum Platform
     image: /images/providers/qiskit-ibm-provider.png
