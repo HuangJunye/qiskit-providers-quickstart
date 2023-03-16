@@ -1,7 +1,7 @@
 {
   "id": "local-simulators",
   "title": "Local Simulators",
-  "description": "Local simulators are software packages that allow users to simulate quantum programs in a local computer.",
+  "description": "Software packages that allow users to simulate quantum programs in a local computer.",
   "providers": [
     {
       "title": "Qiskit Aer",

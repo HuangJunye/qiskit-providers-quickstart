@@ -1,7 +1,7 @@
 {
   "id": "multi-platforms",
   "title": "Multi-platforms",
-  "description": "Multi-platforms are cloud services that allow you to connect with several quantum services from different vendors.",
+  "description": "Cloud services that allow you to connect with several quantum services from different vendors.",
   "providers": [
     {
       "title": "Azure Quantum",

@@ -6,6 +6,7 @@ script_dir = os.path.dirname(__file__)
 yaml_dir = os.path.join(script_dir, "yaml_in")
 providers_dir = os.path.join(yaml_dir, "providers")
 json_dir = os.path.join(script_dir, "json_out")
+providers_json_dir = os.path.join(json_dir, "providers")
 py_dir = os.path.join(script_dir, "py_out")
 
 with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
@@ -13,7 +14,7 @@ with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
 
 for category in os.listdir(providers_dir):
     with open(os.path.join(providers_dir, category), 'r')as yaml_in,\
-         open(os.path.join(json_dir, category[:-4]+"json"), "w") as json_out:
+         open(os.path.join(providers_json_dir, category[:-4]+"json"), "w") as json_out:
         category_dict = yaml.safe_load(yaml_in)
         providers_list = category_dict['providers']
 
