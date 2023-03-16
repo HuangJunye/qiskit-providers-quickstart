@@ -14,7 +14,7 @@ with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
 
 quick_start_list = []
 
-for category in os.listdir(providers_dir):
+for category in sorted(os.listdir(providers_dir)):
     with open(os.path.join(providers_dir, category), 'r')as yaml_in:
         category_dict = yaml.safe_load(yaml_in)
         providers_list = category_dict['providers']
