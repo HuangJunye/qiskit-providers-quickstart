@@ -1,11 +1,10 @@
 id: local-simulators
 title: Local Simulators
-description: Local simulators are software packages that allow users to simulate quantum programs in a local computer.
+description: Software packages that allow users to simulate quantum programs in your local computer.
 providers:
-  - title: Qiskit Aer
+  - title: Aer
     image: null
-    description: Qiskit Aer is a high performance simulator for quantum circuits that
-      includes noise models.
+    description: Aer is a high performance simulator for quantum circuits that includes noise models.
     installation: pip install qiskit-aer
     websiteCta:
       label: null
@@ -43,7 +42,7 @@ providers:
         backend = StatevectorSimulator()
   - title: MQT DDSIM
     image: null
-    description: MQT DDSIM - A quantum circuit simulator based on decision diagrams written in C++ 
+    description: MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++
     installation: pip install mqt.ddsim
     websiteCta:
       label: Website
@@ -61,7 +60,7 @@ providers:
         backend = provider.get_backend('qasm_simulator')
   - title: QuaC
     image: null
-    description: Time dependent open quantum systems solver.
+    description: QuaC is a time dependent open quantum systems solver.
     installation: |-
       git clone https://github.com/0tt3r/QuaC-qiskit
       cd QuaC-qiskit

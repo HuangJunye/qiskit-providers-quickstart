@@ -1,4 +1,4 @@
-- name: bell
+- name: Transpile and run
   runMethod: backend
   code: |
     # Build and transpile circuit
@@ -14,7 +14,7 @@
     counts = job.result().get_counts()
     print(counts)
 
-- name: bell
+- name: Bell state
   runMethod: sampler
   code: |
     # Build circuit
@@ -29,7 +29,7 @@
     quasi_dist = job.result().quasi_dists[0]
     print(quasi_dist)
 
-- name: vqe
+- name: VQE
   runMethod: estimator
   code: |
     from qiskit.quantum_info import SparsePauliOp
@@ -52,3 +52,8 @@
     vqe = VQE(estimator, ansatz, optimizer)
     result = vqe.compute_minimum_eigenvalue(operator=H2_op)
     print(result.eigenvalue)
+
+- name: Quantum Volume
+  runMethod: sampler
+  code: |
+    # TODO
