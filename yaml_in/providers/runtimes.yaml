@@ -1,9 +1,9 @@
 id: runtimes
 title: Quantum Runtimes
-description: Quantum runtimes are services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms. 
+description: Services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms. 
 providers:
   - title: IBM Qiskit Runtime
-    image: static/images/providers/qiskit-ibm-runtime.png
+    image: /images/providers/qiskit-ibm-runtime.png
     description: Qiskit Runtime is a quantum computing service and programming model
       that allows users to optimize workloads and efficiently execute them on quantum
       systems at scale. The programming model extends the existing interface in Qiskit
