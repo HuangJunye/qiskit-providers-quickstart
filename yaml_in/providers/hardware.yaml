@@ -3,7 +3,7 @@ title: Quantum Hardware
 description: Quantum hardware are services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
 providers:
   - title: IBM Quantum Platform
-    image: images/providers/qiskit-ibm-provider.png
+    image: /images/providers/qiskit-ibm-provider.png
     description: IBM Quantum platform offers access to IBM Quantum systems and simulators.
     installation: pip install qiskit-ibm-provider
     websiteCta:
