@@ -1,0 +1,260 @@
+{
+  "id": "hardware",
+  "title": "Quantum Hardware",
+  "description": "Services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.",
+  "providers": [
+    {
+      "title": "IBM Quantum Platform",
+      "image": "/images/providers/qiskit-ibm-provider.png",
+      "description": "IBM Quantum platform offers access to IBM Quantum systems and simulators.",
+      "installation": "pip install qiskit-ibm-provider",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.ibm.com/quantum/systems"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit.org/documentation/partners/qiskit_ibm_provider/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/Qiskit/qiskit-ibm-provider"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_ibm_provider import IBMProvider",
+            "IBMProvider.save_account(\"MY_IBM_QUANTUM_TOKEN\")",
+            "provider = IBMProvider()",
+            "backend = provider.get_backend(\"ibm_nairobi\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "IonQ",
+      "image": null,
+      "description": "Qiskit provider for IonQ backends.",
+      "installation": "pip install qiskit-ionq",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://ionq.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit.org/documentation/partners/ionq/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/Qiskit-Partners/qiskit-ionq"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_ionq import IonQProvider",
+            "provider = IonQProvider(\"MY_IONQ_TOKEN\")",
+            "backend = provider.get_backend(\"ionq_simulator\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Quantinuum",
+      "image": null,
+      "description": "Qiskit provider for Quantinuum backends.",
+      "installation": "pip install qiskit-quantinuum-provider",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.quantinuum.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://github.com/qiskit-community/qiskit-quantinuum-provider/blob/master/examples/QuantinuumExample.ipynb"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/qiskit-community/qiskit-quantinuum-provider"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_quantinuum import Quantinuum",
+            "Quantinuum.save_account(\"username@company.com\")",
+            "backend = Quantinuum.get_backend(\"DEVICE_NAME\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AQT",
+      "image": null,
+      "description": null,
+      "installation": "pip install qiskit-aqt-provider",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.aqt.eu/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit.org/documentation/partners/aqt/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/Qiskit-Partners/qiskit-aqt-provider"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_aqt_provider import AQTProvider",
+            "aqt = AQTProvider('MY_TOKEN')",
+            "backend = aqt.get_backend('aqt_qasm_simulator')",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rigetti",
+      "image": null,
+      "description": null,
+      "installation": "pip install qiskit-rigetti",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.rigetti.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://qiskit-rigetti.readthedocs.io/en/latest/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/rigetti/qiskit-rigetti"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_rigetti import RigettiQCSProvider",
+            "provider = RigettiQCSProvider()",
+            "backend = provider.get_backend(name=\"Aspen-9\")",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "IQM",
+      "image": null,
+      "description": "Qiskit adapter for IQM\u2019s quantum computers.",
+      "installation": "pip install qiskit-iqm",
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.meetiqm.com/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://iqm-finland.github.io/qiskit-on-iqm/"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/iqm-finland/qiskit-on-iqm"
+      },
+      "codeExamples": [
+        {
+          "name": "bell",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_iqm import IQMProvider",
+            "provider = IQMProvider(iqm_server_url)",
+            "backend = provider.get_backend()",
+            "&nbsp;",
+            "# Build and transpile circuit",
+            "from qiskit import QuantumCircuit, transpile",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    }
+  ]
+}

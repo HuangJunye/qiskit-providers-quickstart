@@ -1,11 +1,11 @@
 {
   "id": "runtimes",
   "title": "Quantum Runtimes",
-  "description": "Quantum runtimes are services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms.",
+  "description": "Services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms.",
   "providers": [
     {
       "title": "IBM Qiskit Runtime",
-      "image": "static/images/providers/qiskit-ibm-runtime.png",
+      "image": "/images/providers/qiskit-ibm-runtime.png",
       "description": "Qiskit Runtime is a quantum computing service and programming model that allows users to optimize workloads and efficiently execute them on quantum systems at scale. The programming model extends the existing interface in Qiskit with a set of new primitive programs.",
       "installation": "pip install qiskit-ibm-runtime",
       "websiteCta": {
@@ -41,37 +41,6 @@
             "job = sampler.run(circuit)",
             "quasi_dist = job.result().quasi_dists[0]",
             "print(quasi_dist)"
-          ]
-        },
-        {
-          "name": "vqe",
-          "runMethod": "estimator",
-          "fullCode": [
-            "from qiskit_ibm_runtime import QiskitRuntimeService, Estimator",
-            "service = QiskitRuntimeService()",
-            "backend = service.backend(\"ibmq_qasm_simulator\")",
-            "estimator = Estimator(session=backend)",
-            "&nbsp;",
-            "from qiskit.quantum_info import SparsePauliOp",
-            "&nbsp;",
-            "H2_op = SparsePauliOp.from_list([",
-            "    (\"II\", -1.052373245772859),",
-            "    (\"IZ\", 0.39793742484318045),",
-            "    (\"ZI\", -0.39793742484318045),",
-            "    (\"ZZ\", -0.01128010425623538),",
-            "    (\"XX\", 0.18093119978423156)",
-            "])",
-            "&nbsp;",
-            "# Calculate ground state energy using VQE",
-            "from qiskit.circuit.library import TwoLocal",
-            "from qiskit.algorithms.optimizers import SLSQP",
-            "from qiskit.algorithms.minimum_eigensolvers import VQE",
-            "&nbsp;",
-            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
-            "optimizer = SLSQP(maxiter=1000)",
-            "vqe = VQE(estimator, ansatz, optimizer)",
-            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
-            "print(result.eigenvalue)"
           ]
         }
       ]
