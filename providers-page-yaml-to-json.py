@@ -15,7 +15,7 @@ with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
 
 for category in os.listdir(providers_dir):
     with open(os.path.join(providers_dir, category), 'r')as yaml_in,\
-         open(os.path.join(providers_json_dir, category[:-4]+"json"), "w") as json_out:
+         open(os.path.join(providers_json_dir, category[2:-4]+"json"), "w") as json_out:
         category_dict = yaml.safe_load(yaml_in)
         providers_list = category_dict['providers']
 
