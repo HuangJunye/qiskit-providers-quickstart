@@ -12,9 +12,10 @@ py_dir = os.path.join(script_dir, "py_out")
 with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
     algorithms_list = yaml.safe_load(yaml_in)
 
+quick_start_list = []
+
 for category in os.listdir(providers_dir):
-    with open(os.path.join(providers_dir, category), 'r')as yaml_in,\
-         open(os.path.join(providers_json_dir, category[:-4]+"json"), "w") as json_out:
+    with open(os.path.join(providers_dir, category), 'r')as yaml_in:
         category_dict = yaml.safe_load(yaml_in)
         providers_list = category_dict['providers']
 
@@ -26,12 +27,8 @@ for category in os.listdir(providers_dir):
                 algorithm_code = algorithm['code'].splitlines()
 
                 if algorithm['runMethod'] == 'backend':
-                    # backend.run
-                    if provider['code'].get('backend'):
-                        provider_setup_code = provider['code']['backend'].splitlines()
-                    else:
-                        # create empty code lines if provider does not support backend run
-                        algorithm_code = []
+                    # create empty code lines if provider does not support backend run
+                    algorithm_code = []
                 else:
                     # primitive.run
                     if provider['code'].get('sampler'):
@@ -72,5 +69,8 @@ for category in os.listdir(providers_dir):
                     provider['codeExamples'].append(algorithm_entry)
             # drop unwanted 'code' entry
             del provider['code']
+            quick_start_list.append(provider)
 
-        json.dump(category_dict, json_out, indent=2)
+with open(os.path.join(json_dir, "quick-start.json"), "w") as json_out:
+    print(f"We have {len(quick_start_list)} providers.")
+    json.dump(quick_start_list, json_out, indent=2)
