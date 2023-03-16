@@ -41,55 +41,6 @@
             "counts = job.result().get_counts()",
             "print(counts)"
           ]
-        },
-        {
-          "name": "bell",
-          "runMethod": "sampler",
-          "fullCode": [
-            "from qiskit_aer.primitives import Sampler",
-            "sampler = Sampler()",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Run the circuit and get result distribution",
-            "job = sampler.run(circuit)",
-            "quasi_dist = job.result().quasi_dists[0]",
-            "print(quasi_dist)"
-          ]
-        },
-        {
-          "name": "vqe",
-          "runMethod": "estimator",
-          "fullCode": [
-            "from qiskit_aer.primitives import Estimator",
-            "estimator = Estimator()",
-            "&nbsp;",
-            "from qiskit.quantum_info import SparsePauliOp",
-            "&nbsp;",
-            "H2_op = SparsePauliOp.from_list([",
-            "    (\"II\", -1.052373245772859),",
-            "    (\"IZ\", 0.39793742484318045),",
-            "    (\"ZI\", -0.39793742484318045),",
-            "    (\"ZZ\", -0.01128010425623538),",
-            "    (\"XX\", 0.18093119978423156)",
-            "])",
-            "&nbsp;",
-            "# Calculate ground state energy using VQE",
-            "from qiskit.circuit.library import TwoLocal",
-            "from qiskit.algorithms.optimizers import SLSQP",
-            "from qiskit.algorithms.minimum_eigensolvers import VQE",
-            "&nbsp;",
-            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
-            "optimizer = SLSQP(maxiter=1000)",
-            "vqe = VQE(estimator, ansatz, optimizer)",
-            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
-            "print(result.eigenvalue)"
-          ]
         }
       ]
     },
@@ -130,59 +81,6 @@
             "job = backend.run(transpiled_circuit)",
             "counts = job.result().get_counts()",
             "print(counts)"
-          ]
-        },
-        {
-          "name": "bell",
-          "runMethod": "sampler",
-          "fullCode": [
-            "from cusvaer.backends import StatevectorSimulator",
-            "from qiskit.primitives import BackendSampler",
-            "backend = StatevectorSimulator()",
-            "sampler = BackendSampler(backend)",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Run the circuit and get result distribution",
-            "job = sampler.run(circuit)",
-            "quasi_dist = job.result().quasi_dists[0]",
-            "print(quasi_dist)"
-          ]
-        },
-        {
-          "name": "vqe",
-          "runMethod": "estimator",
-          "fullCode": [
-            "from cusvaer.backends import StatevectorSimulator",
-            "from qiskit.primitives import BackendEstimator",
-            "backend = StatevectorSimulator()",
-            "estimator = BackendEstimator(backend)",
-            "&nbsp;",
-            "from qiskit.quantum_info import SparsePauliOp",
-            "&nbsp;",
-            "H2_op = SparsePauliOp.from_list([",
-            "    (\"II\", -1.052373245772859),",
-            "    (\"IZ\", 0.39793742484318045),",
-            "    (\"ZI\", -0.39793742484318045),",
-            "    (\"ZZ\", -0.01128010425623538),",
-            "    (\"XX\", 0.18093119978423156)",
-            "])",
-            "&nbsp;",
-            "# Calculate ground state energy using VQE",
-            "from qiskit.circuit.library import TwoLocal",
-            "from qiskit.algorithms.optimizers import SLSQP",
-            "from qiskit.algorithms.minimum_eigensolvers import VQE",
-            "&nbsp;",
-            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
-            "optimizer = SLSQP(maxiter=1000)",
-            "vqe = VQE(estimator, ansatz, optimizer)",
-            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
-            "print(result.eigenvalue)"
           ]
         }
       ]
@@ -226,61 +124,6 @@
             "counts = job.result().get_counts()",
             "print(counts)"
           ]
-        },
-        {
-          "name": "bell",
-          "runMethod": "sampler",
-          "fullCode": [
-            "from mqt import ddsim",
-            "from qiskit.primitives import BackendSampler",
-            "provider = ddsim.DDSIMProvider()",
-            "backend = provider.get_backend('qasm_simulator')",
-            "sampler = BackendSampler(backend)",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Run the circuit and get result distribution",
-            "job = sampler.run(circuit)",
-            "quasi_dist = job.result().quasi_dists[0]",
-            "print(quasi_dist)"
-          ]
-        },
-        {
-          "name": "vqe",
-          "runMethod": "estimator",
-          "fullCode": [
-            "from mqt import ddsim",
-            "from qiskit.primitives import BackendEstimator",
-            "provider = ddsim.DDSIMProvider()",
-            "backend = provider.get_backend('qasm_simulator')",
-            "estimator = BackendEstimator(backend)",
-            "&nbsp;",
-            "from qiskit.quantum_info import SparsePauliOp",
-            "&nbsp;",
-            "H2_op = SparsePauliOp.from_list([",
-            "    (\"II\", -1.052373245772859),",
-            "    (\"IZ\", 0.39793742484318045),",
-            "    (\"ZI\", -0.39793742484318045),",
-            "    (\"ZZ\", -0.01128010425623538),",
-            "    (\"XX\", 0.18093119978423156)",
-            "])",
-            "&nbsp;",
-            "# Calculate ground state energy using VQE",
-            "from qiskit.circuit.library import TwoLocal",
-            "from qiskit.algorithms.optimizers import SLSQP",
-            "from qiskit.algorithms.minimum_eigensolvers import VQE",
-            "&nbsp;",
-            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
-            "optimizer = SLSQP(maxiter=1000)",
-            "vqe = VQE(estimator, ansatz, optimizer)",
-            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
-            "print(result.eigenvalue)"
-          ]
         }
       ]
     },
@@ -321,59 +164,6 @@
             "job = backend.run(transpiled_circuit)",
             "counts = job.result().get_counts()",
             "print(counts)"
-          ]
-        },
-        {
-          "name": "bell",
-          "runMethod": "sampler",
-          "fullCode": [
-            "from quac_qiskit import Quac",
-            "from qiskit.primitives import BackendSampler",
-            "backend = Quac.get_backend(\"fake_vigo_density_simulator\")",
-            "sampler = BackendSampler(backend)",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Run the circuit and get result distribution",
-            "job = sampler.run(circuit)",
-            "quasi_dist = job.result().quasi_dists[0]",
-            "print(quasi_dist)"
-          ]
-        },
-        {
-          "name": "vqe",
-          "runMethod": "estimator",
-          "fullCode": [
-            "from quac_qiskit import Quac",
-            "from qiskit.primitives import BackendEstimator",
-            "backend = Quac.get_backend(\"fake_vigo_density_simulator\")",
-            "estimator = BackendEstimator(backend)",
-            "&nbsp;",
-            "from qiskit.quantum_info import SparsePauliOp",
-            "&nbsp;",
-            "H2_op = SparsePauliOp.from_list([",
-            "    (\"II\", -1.052373245772859),",
-            "    (\"IZ\", 0.39793742484318045),",
-            "    (\"ZI\", -0.39793742484318045),",
-            "    (\"ZZ\", -0.01128010425623538),",
-            "    (\"XX\", 0.18093119978423156)",
-            "])",
-            "&nbsp;",
-            "# Calculate ground state energy using VQE",
-            "from qiskit.circuit.library import TwoLocal",
-            "from qiskit.algorithms.optimizers import SLSQP",
-            "from qiskit.algorithms.minimum_eigensolvers import VQE",
-            "&nbsp;",
-            "ansatz = TwoLocal(2, \"ry\", \"cz\")",
-            "optimizer = SLSQP(maxiter=1000)",
-            "vqe = VQE(estimator, ansatz, optimizer)",
-            "result = vqe.compute_minimum_eigenvalue(operator=H2_op)",
-            "print(result.eigenvalue)"
           ]
         }
       ]
