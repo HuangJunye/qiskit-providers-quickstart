@@ -8,6 +8,7 @@ providers_dir = os.path.join(yaml_dir, "providers")
 json_dir = os.path.join(script_dir, "json_out")
 providers_json_dir = os.path.join(json_dir, "providers")
 py_dir = os.path.join(script_dir, "py_out")
+quick_start_py_dir = os.path.join(py_dir, "quick-start")
 
 with open(os.path.join(yaml_dir, 'algorithms'+'.yaml'), 'r') as yaml_in:
     algorithms_list = yaml.safe_load(yaml_in)
@@ -55,7 +56,7 @@ for category in sorted(os.listdir(providers_dir)):
                 algorithm_run_method = algorithm['runMethod']
 
                 if full_code:
-                    with open(os.path.join(py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
+                    with open(os.path.join(quick_start_py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
                         f.write(full_code)
 
                     temp = full_code.splitlines()
