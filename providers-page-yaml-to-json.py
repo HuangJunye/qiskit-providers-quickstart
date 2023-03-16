@@ -23,25 +23,18 @@ for category in os.listdir(providers_dir):
             provider_setup_code = []
             provider['codeExamples'] = []
 
-            # only use the first entry of the algorithms for providers page
             if provider['code'].get('backend'):
+                # run bell circuit with backend.run
                 algorithm = algorithms_list[0]
                 provider_setup_code = provider['code']['backend'].splitlines()
             else:
+                # run bell circuit with sampler.run
                 algorithm = algorithms_list[1]
                 provider_setup_code = provider['code']['sampler'].splitlines()
                 
             algorithm_code = algorithm['code'].splitlines()
-
             full_code = provider_setup_code + [''] + algorithm_code
-
-            # input code example for each provider uses sampler by default
-            # if the algorithm runs with estimator, we replace 'sampler' with 'estimator'
-            # join list of strings into a long string so that we can do text replacement with one call
             full_code = '\n'.join(full_code)
-            if algorithm['runMethod'] == 'estimator':
-                full_code = full_code.replace('sampler', 'estimator')
-                full_code = full_code.replace('Sampler', 'Estimator')
 
             provider_name = provider['title']
             algorithm_name = algorithm['name']
