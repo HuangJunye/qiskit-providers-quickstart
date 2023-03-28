@@ -22,7 +22,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from qiskit_ibm_provider import IBMProvider",

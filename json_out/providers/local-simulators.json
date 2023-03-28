@@ -1,12 +1,12 @@
 {
   "id": "local-simulators",
   "title": "Local Simulators",
-  "description": "Software packages that allow users to simulate quantum programs in a local computer.",
+  "description": "Software packages that allow users to simulate quantum programs in your local computer.",
   "providers": [
     {
-      "title": "Qiskit Aer",
+      "title": "Aer",
       "image": null,
-      "description": "Qiskit Aer is a high performance simulator for quantum circuits that includes noise models.",
+      "description": "Aer is a high performance simulator for quantum circuits that includes noise models.",
       "installation": "pip install qiskit-aer",
       "websiteCta": {
         "label": null,
@@ -22,7 +22,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from qiskit_aer import AerSimulator",
@@ -63,7 +63,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from cusvaer.backends import StatevectorSimulator",
@@ -88,7 +88,7 @@
     {
       "title": "MQT DDSIM",
       "image": null,
-      "description": "MQT DDSIM - A quantum circuit simulator based on decision diagrams written in C++",
+      "description": "MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++",
       "installation": "pip install mqt.ddsim",
       "websiteCta": {
         "label": "Website",
@@ -104,7 +104,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from mqt import ddsim",
@@ -130,7 +130,7 @@
     {
       "title": "QuaC",
       "image": null,
-      "description": "Time dependent open quantum systems solver.",
+      "description": "QuaC is a time dependent open quantum systems solver.",
       "installation": "git clone https://github.com/0tt3r/QuaC-qiskit\ncd QuaC-qiskit\npip install .",
       "websiteCta": {
         "label": "Website",
@@ -146,7 +146,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from quac_qiskit import Quac",

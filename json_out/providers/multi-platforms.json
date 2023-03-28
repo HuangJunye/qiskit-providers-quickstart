@@ -22,7 +22,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from azure.quantum.qiskit import AzureQuantumProvider",
@@ -64,7 +64,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from qiskit_braket_provider import AWSBraketProvider",
@@ -106,7 +106,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from qiskit_superstaq import SuperstaQProvider",
@@ -148,7 +148,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from qiskit_qcware import QcwareProvider",
@@ -190,7 +190,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "from gaqqie_door import QiskitGaqqie",
@@ -234,7 +234,7 @@
       },
       "codeExamples": [
         {
-          "name": "bell",
+          "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
             "import strangeworks",
