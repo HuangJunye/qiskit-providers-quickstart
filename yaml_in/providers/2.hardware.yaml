@@ -1,6 +1,6 @@
 id: hardware
 title: Quantum Hardware
-description: Services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
+description: Cloud services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
 providers:
   - title: IBM Quantum Platform
     image: /images/providers/qiskit-ibm-provider.png
@@ -8,7 +8,7 @@ providers:
     installation: pip install qiskit-ibm-provider
     websiteCta:
       label: Website
-      url: https://www.ibm.com/quantum/systems
+      url: https://quantum-computing.ibm.com/services?services=systems
     docsCta:
       label: Docs
       url: https://qiskit.org/documentation/partners/qiskit_ibm_provider/
@@ -23,7 +23,7 @@ providers:
         backend = provider.get_backend("ibm_nairobi")
   - title: IonQ
     image: null
-    description: Qiskit provider for IonQ backends.
+    description: IonQ is quantum computing hardware and software company that develops general-purpose trapped ion quantum computers.
     installation: pip install qiskit-ionq
     websiteCta:
       label: Website
@@ -41,7 +41,7 @@ providers:
         backend = provider.get_backend("ionq_simulator")
   - title: Quantinuum
     image: null
-    description: Qiskit provider for Quantinuum backends.
+    description: Formally Honeywell, Quantinuum focuses on trapped-ion computing.
     installation: pip install qiskit-quantinuum-provider
     websiteCta:
       label: Website
@@ -59,11 +59,11 @@ providers:
         backend = Quantinuum.get_backend("DEVICE_NAME")
   - title: AQT
     image: null
-    description: null
+    description: AQT provides to partners ion-trap quantum system that operate at room temperature.
     installation: pip install qiskit-aqt-provider
     websiteCta:
       label: Website
-      url: https://www.aqt.eu/
+      url: https://www.aqt.eu/qc-systems/
     docsCta:
       label: Docs
       url: https://qiskit.org/documentation/partners/aqt/
