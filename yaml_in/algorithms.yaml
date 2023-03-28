@@ -29,12 +29,26 @@
     quasi_dist = job.result().quasi_dists[0]
     print(quasi_dist)
 
+- name: Quantum Volume
+  runMethod: sampler
+  code: |
+    # Build circuit
+    from qiskit.circuit.library import QuantumVolume
+    circuit = QuantumVolume(5)
+    circuit.measure_all()
+
+    # Run the circuit and plot result distribution
+    from qiskit.visualization import plot_histogram
+    job = sampler.run(circuit)
+    quasi_dist = job.result().quasi_dists[0]
+    plot_histogram(quasi_dist)
+
 - name: VQE
   runMethod: estimator
   code: |
+    # Express hydrogen molecule Hamiltonian as an operator
     from qiskit.quantum_info import SparsePauliOp
-
-    H2_op = SparsePauliOp.from_list([
+    H2_operator = SparsePauliOp.from_list([
         ("II", -1.052373245772859),
         ("IZ", 0.39793742484318045),
         ("ZI", -0.39793742484318045),
@@ -47,13 +61,8 @@
     from qiskit.algorithms.optimizers import SLSQP
     from qiskit.algorithms.minimum_eigensolvers import VQE
 
-    ansatz = TwoLocal(2, "ry", "cz")
-    optimizer = SLSQP(maxiter=1000)
+    ansatz = TwoLocal(num_qubits=2, rotation_blocks="ry", entanglement_blocks="cz")
+    optimizer = SLSQP(maxiter=100)
     vqe = VQE(estimator, ansatz, optimizer)
-    result = vqe.compute_minimum_eigenvalue(operator=H2_op)
+    result = vqe.compute_minimum_eigenvalue(operator=H2_operator)
     print(result.eigenvalue)
-
-- name: Quantum Volume
-  runMethod: sampler
-  code: |
-    # TODO

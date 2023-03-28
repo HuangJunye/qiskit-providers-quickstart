@@ -4,9 +4,9 @@ provider = RigettiQCSProvider()
 backend = provider.get_backend(name="Aspen-9")
 estimator = BackendEstimator(backend)
 
+# Express hydrogen molecule Hamiltonian as an operator
 from qiskit.quantum_info import SparsePauliOp
-
-H2_op = SparsePauliOp.from_list([
+H2_operator = SparsePauliOp.from_list([
     ("II", -1.052373245772859),
     ("IZ", 0.39793742484318045),
     ("ZI", -0.39793742484318045),
@@ -19,8 +19,8 @@ from qiskit.circuit.library import TwoLocal
 from qiskit.algorithms.optimizers import SLSQP
 from qiskit.algorithms.minimum_eigensolvers import VQE
 
-ansatz = TwoLocal(2, "ry", "cz")
-optimizer = SLSQP(maxiter=1000)
+ansatz = TwoLocal(num_qubits=2, rotation_blocks="ry", entanglement_blocks="cz")
+optimizer = SLSQP(maxiter=100)
 vqe = VQE(estimator, ansatz, optimizer)
-result = vqe.compute_minimum_eigenvalue(operator=H2_op)
+result = vqe.compute_minimum_eigenvalue(operator=H2_operator)
 print(result.eigenvalue)
