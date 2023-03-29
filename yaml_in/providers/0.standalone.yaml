@@ -1,0 +1,24 @@
+id: standalone
+title: Qiskit Stand-alone
+description: Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.
+providers:
+  - title: Qiskit Standalone
+    description: Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.
+    installation:
+    websiteCta:
+      label: Website
+      url: https://qiskit.org/
+    docsCta:
+      label: Docs
+      url: https://qiskit.org/documentation/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/Qiskit/qiskit-terra
+    code:
+      sampler: |-
+        from qiskit.primitives import Sampler
+        sampler = Sampler()
+      backend: |-
+        from qiskit.providers.basicaer import BasicAer
+        backend = BasicAer.get_backend('qasm_simulator')
+

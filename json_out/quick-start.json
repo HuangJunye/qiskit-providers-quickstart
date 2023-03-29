@@ -1,5 +1,92 @@
 [
   {
+    "title": "Qiskit Standalone",
+    "description": "Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.",
+    "installation": null,
+    "websiteCta": {
+      "label": "Website",
+      "url": "https://qiskit.org/"
+    },
+    "docsCta": {
+      "label": "Docs",
+      "url": "https://qiskit.org/documentation/"
+    },
+    "sourceCta": {
+      "label": "GitHub",
+      "url": "https://github.com/Qiskit/qiskit-terra"
+    },
+    "codeExamples": [
+      {
+        "name": "Bell state",
+        "runMethod": "sampler",
+        "fullCode": [
+          "from qiskit.primitives import Sampler",
+          "sampler = Sampler()",
+          "&nbsp;",
+          "# Build circuit",
+          "from qiskit import QuantumCircuit",
+          "circuit = QuantumCircuit(2, 2)",
+          "circuit.h(0)",
+          "circuit.cx(0,1)",
+          "circuit.measure([0,1], [0,1])",
+          "&nbsp;",
+          "# Run the circuit and get result distribution",
+          "job = sampler.run(circuit)",
+          "quasi_dist = job.result().quasi_dists[0]",
+          "print(quasi_dist)"
+        ]
+      },
+      {
+        "name": "Quantum Volume",
+        "runMethod": "sampler",
+        "fullCode": [
+          "from qiskit.primitives import Sampler",
+          "sampler = Sampler()",
+          "&nbsp;",
+          "# Build circuit",
+          "from qiskit.circuit.library import QuantumVolume",
+          "circuit = QuantumVolume(5)",
+          "circuit.measure_all()",
+          "&nbsp;",
+          "# Run the circuit and plot result distribution",
+          "from qiskit.visualization import plot_histogram",
+          "job = sampler.run(circuit)",
+          "quasi_dist = job.result().quasi_dists[0]",
+          "plot_histogram(quasi_dist)"
+        ]
+      },
+      {
+        "name": "VQE",
+        "runMethod": "estimator",
+        "fullCode": [
+          "from qiskit.primitives import Estimator",
+          "estimator = Estimator()",
+          "&nbsp;",
+          "# Express hydrogen molecule Hamiltonian as an operator",
+          "from qiskit.quantum_info import SparsePauliOp",
+          "H2_operator = SparsePauliOp.from_list([",
+          "    (\"II\", -1.052373245772859),",
+          "    (\"IZ\", 0.39793742484318045),",
+          "    (\"ZI\", -0.39793742484318045),",
+          "    (\"ZZ\", -0.01128010425623538),",
+          "    (\"XX\", 0.18093119978423156)",
+          "])",
+          "&nbsp;",
+          "# Calculate ground state energy using VQE",
+          "from qiskit.circuit.library import TwoLocal",
+          "from qiskit.algorithms.optimizers import SLSQP",
+          "from qiskit.algorithms.minimum_eigensolvers import VQE",
+          "&nbsp;",
+          "ansatz = TwoLocal(num_qubits=2, rotation_blocks=\"ry\", entanglement_blocks=\"cz\")",
+          "optimizer = SLSQP(maxiter=100)",
+          "vqe = VQE(estimator, ansatz, optimizer)",
+          "result = vqe.compute_minimum_eigenvalue(operator=H2_operator)",
+          "print(result.eigenvalue)"
+        ]
+      }
+    ]
+  },
+  {
     "title": "IBM Qiskit Runtime",
     "image": "/images/providers/qiskit-ibm-runtime.png",
     "description": "Qiskit Runtime is a quantum computing service and programming model that allows users to optimize workloads and efficiently execute them on quantum systems at scale. The programming model extends the existing interface in Qiskit with a set of new primitive programs.",
