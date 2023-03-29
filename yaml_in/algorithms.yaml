@@ -1,12 +1,21 @@
+# Providers page only contain one code example which is Transpile and run
+# Quick Start section contain 3 code examples (tabs) which are 
+# 1. Transpiling
+# 2. Sampling Bell Circuit
+# 3. Running VQE
+# It doesn't contain Transpile and run code examples
 - name: Transpile and run
   runMethod: backend
   code: |
-    # Build and transpile circuit
-    from qiskit import QuantumCircuit, transpile
+    # Build circuit
+    from qiskit import QuantumCircuit
     circuit = QuantumCircuit(2, 2)
     circuit.h(0)
     circuit.cx(0,1)
     circuit.measure([0,1], [0,1])
+
+    # Transpile circuit
+    from qiskit import transpile
     transpiled_circuit = transpile(circuit, backend)
 
     # Run the circuit and get result
@@ -14,7 +23,20 @@
     counts = job.result().get_counts()
     print(counts)
 
-- name: Bell state
+# For quick start section only
+- name: Transpiling
+  runMethod: backend
+  code: |
+    # Build circuit
+    from qiskit.circuit.library import QuantumVolume
+    circuit = QuantumVolume(5)
+
+    # Transpile circuit
+    from qiskit import transpile
+    transpiled_circuit = transpile(circuit, backend)
+    transpiled_circuit.draw()
+
+- name: Sampling Bell Circuit
   runMethod: sampler
   code: |
     # Build circuit
@@ -29,21 +51,7 @@
     quasi_dist = job.result().quasi_dists[0]
     print(quasi_dist)
 
-- name: Quantum Volume
-  runMethod: sampler
-  code: |
-    # Build circuit
-    from qiskit.circuit.library import QuantumVolume
-    circuit = QuantumVolume(5)
-    circuit.measure_all()
-
-    # Run the circuit and plot result distribution
-    from qiskit.visualization import plot_histogram
-    job = sampler.run(circuit)
-    quasi_dist = job.result().quasi_dists[0]
-    plot_histogram(quasi_dist)
-
-- name: VQE
+- name: Running VQE
   runMethod: estimator
   code: |
     # Express hydrogen molecule Hamiltonian as an operator

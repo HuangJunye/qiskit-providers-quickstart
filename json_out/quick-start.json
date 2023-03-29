@@ -17,7 +17,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit.primitives import Sampler",
@@ -37,26 +37,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit.primitives import Sampler",
-          "sampler = Sampler()",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit.primitives import Estimator",
@@ -105,7 +86,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_ibm_runtime import QiskitRuntimeService, Sampler",
@@ -127,28 +108,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_ibm_runtime import QiskitRuntimeService, Sampler",
-          "service = QiskitRuntimeService()",
-          "backend = service.backend(\"ibmq_qasm_simulator\")",
-          "sampler = Sampler(session=backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_ibm_runtime import QiskitRuntimeService, Estimator",
@@ -199,7 +159,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_ibm_provider import IBMProvider",
@@ -223,30 +183,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_ibm_provider import IBMProvider",
-          "from qiskit.primitives import BackendSampler",
-          "IBMProvider.save_account(\"MY_IBM_QUANTUM_TOKEN\")",
-          "provider = IBMProvider()",
-          "backend = provider.get_backend(\"ibm_nairobi\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_ibm_provider import IBMProvider",
@@ -299,7 +236,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_ionq import IonQProvider",
@@ -322,29 +259,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_ionq import IonQProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = IonQProvider(\"MY_IONQ_TOKEN\")",
-          "backend = provider.get_backend(\"ionq_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_ionq import IonQProvider",
@@ -396,7 +311,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_quantinuum import Quantinuum",
@@ -419,29 +334,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_quantinuum import Quantinuum",
-          "from qiskit.primitives import BackendSampler",
-          "Quantinuum.save_account(\"username@company.com\")",
-          "backend = Quantinuum.get_backend(\"DEVICE_NAME\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_quantinuum import Quantinuum",
@@ -493,7 +386,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_aqt_provider import AQTProvider",
@@ -516,29 +409,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_aqt_provider import AQTProvider",
-          "from qiskit.primitives import BackendSampler",
-          "aqt = AQTProvider('MY_TOKEN')",
-          "backend = aqt.get_backend('aqt_qasm_simulator')",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_aqt_provider import AQTProvider",
@@ -590,7 +461,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_rigetti import RigettiQCSProvider",
@@ -613,29 +484,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_rigetti import RigettiQCSProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = RigettiQCSProvider()",
-          "backend = provider.get_backend(name=\"Aspen-9\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_rigetti import RigettiQCSProvider",
@@ -687,7 +536,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_iqm import IQMProvider",
@@ -710,29 +559,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_iqm import IQMProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = IQMProvider(iqm_server_url)",
-          "backend = provider.get_backend()",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_iqm import IQMProvider",
@@ -784,7 +611,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_aer.primitives import Sampler",
@@ -804,26 +631,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_aer.primitives import Sampler",
-          "sampler = Sampler()",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_aer.primitives import Estimator",
@@ -872,7 +680,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from cusvaer.backends import StatevectorSimulator",
@@ -894,28 +702,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from cusvaer.backends import StatevectorSimulator",
-          "from qiskit.primitives import BackendSampler",
-          "backend = StatevectorSimulator()",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from cusvaer.backends import StatevectorSimulator",
@@ -966,7 +753,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from mqt import ddsim",
@@ -989,29 +776,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from mqt import ddsim",
-          "from qiskit.primitives import BackendSampler",
-          "provider = ddsim.DDSIMProvider()",
-          "backend = provider.get_backend('qasm_simulator')",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from mqt import ddsim",
@@ -1063,7 +828,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from quac_qiskit import Quac",
@@ -1085,28 +850,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from quac_qiskit import Quac",
-          "from qiskit.primitives import BackendSampler",
-          "backend = Quac.get_backend(\"fake_vigo_density_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from quac_qiskit import Quac",
@@ -1157,7 +901,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_ibm_provider import IBMProvider",
@@ -1181,30 +925,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_ibm_provider import IBMProvider",
-          "from qiskit.primitives import BackendSampler",
-          "&nbsp;",
-          "provider = IBMProvider()",
-          "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_ibm_provider import IBMProvider",
@@ -1257,7 +978,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from azure.quantum.qiskit import AzureQuantumProvider",
@@ -1280,29 +1001,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from azure.quantum.qiskit import AzureQuantumProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = AzureQuantumProvider(resource_id=\"MY_RESOURCE_ID\",location=\"MY_LOCATION\")",
-          "backend = provider.get_backend(\"ionq.simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from azure.quantum.qiskit import AzureQuantumProvider",
@@ -1354,7 +1053,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_braket_provider import AWSBraketProvider",
@@ -1377,29 +1076,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_braket_provider import AWSBraketProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = AWSBraketProvider()",
-          "backend = provider.backends(\"SV1\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_braket_provider import AWSBraketProvider",
@@ -1451,7 +1128,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_superstaq import SuperstaQProvider",
@@ -1474,29 +1151,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_superstaq import SuperstaQProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = SuperstaQProvider(\"MY_SUPERSTAQ_TOKEN\")",
-          "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_superstaq import SuperstaQProvider",
@@ -1548,7 +1203,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from qiskit_qcware import QcwareProvider",
@@ -1571,29 +1226,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit_qcware import QcwareProvider",
-          "from qiskit.primitives import BackendSampler",
-          "provider = QcwareProvider()",
-          "backend = provider.get_backend('forge_statevector')",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from qiskit_qcware import QcwareProvider",
@@ -1645,7 +1278,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "from gaqqie_door import QiskitGaqqie",
@@ -1670,31 +1303,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from gaqqie_door import QiskitGaqqie",
-          "from qiskit.primitives import BackendSampler",
-          "# rewrite to the endpoint URL of the user API",
-          "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
-          "QiskitGaqqie.enable_account(url)",
-          "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "from gaqqie_door import QiskitGaqqie",
@@ -1748,7 +1357,7 @@
     },
     "codeExamples": [
       {
-        "name": "Bell state",
+        "name": "Sampling Bell Circuit",
         "runMethod": "sampler",
         "fullCode": [
           "import strangeworks",
@@ -1774,32 +1383,7 @@
         ]
       },
       {
-        "name": "Quantum Volume",
-        "runMethod": "sampler",
-        "fullCode": [
-          "import strangeworks",
-          "from qiskit.primitives import BackendSampler",
-          "from strangeworks_qiskit import StrangeworksProvider",
-          "# get your API key from the Strangeworks Portal",
-          "strangeworks.authenticate(api_key=\"your-api-key\")",
-          "provider = StrangeworksProvider()",
-          "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
-          "sampler = BackendSampler(backend)",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "circuit.measure_all()",
-          "&nbsp;",
-          "# Run the circuit and plot result distribution",
-          "from qiskit.visualization import plot_histogram",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "plot_histogram(quasi_dist)"
-        ]
-      },
-      {
-        "name": "VQE",
+        "name": "Running VQE",
         "runMethod": "estimator",
         "fullCode": [
           "import strangeworks",
