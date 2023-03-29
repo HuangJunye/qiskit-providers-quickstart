@@ -21,6 +21,7 @@ for category in os.listdir(providers_dir):
 
         for provider in providers_list:
 
+            # add 'pip install qiskit' to all installation command
             provider['installation'] = [
                 'pip install qiskit',
                 provider['installation']
