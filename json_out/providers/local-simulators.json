@@ -6,7 +6,10 @@
     {
       "title": "Aer",
       "description": "Aer is a high performance simulator for quantum circuits that includes noise models.",
-      "installation": "pip install qiskit-aer",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-aer"
+      ],
       "websiteCta": {
         "label": null,
         "url": null
@@ -49,7 +52,10 @@
     {
       "title": "NVIDIA cuQuantum Appliance",
       "description": "The NVIDIA cuQuantum Appliance is a highly performant multi-GPU multi-node solution for quantum circuit simulation.",
-      "installation": "docker pull nvcr.io/nvidia/cuquantum-appliance",
+      "installation": [
+        "pip install qiskit",
+        "docker pull nvcr.io/nvidia/cuquantum-appliance"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://developer.nvidia.com/cuquantum-sdk"
@@ -92,7 +98,10 @@
     {
       "title": "MQT DDSIM",
       "description": "MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++",
-      "installation": "pip install mqt.ddsim",
+      "installation": [
+        "pip install qiskit",
+        "pip install mqt.ddsim"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.cda.cit.tum.de/research/quantum_simulation/"
@@ -136,7 +145,10 @@
     {
       "title": "QuaC",
       "description": "QuaC is a time dependent open quantum systems solver.",
-      "installation": "git clone https://github.com/0tt3r/QuaC-qiskit\ncd QuaC-qiskit\npip install .",
+      "installation": [
+        "pip install qiskit",
+        "git clone https://github.com/0tt3r/QuaC-qiskit\ncd QuaC-qiskit\npip install ."
+      ],
       "websiteCta": {
         "label": "Website",
         "url": null

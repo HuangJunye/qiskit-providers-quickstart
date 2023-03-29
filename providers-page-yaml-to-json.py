@@ -20,6 +20,12 @@ for category in os.listdir(providers_dir):
         providers_list = category_dict['providers']
 
         for provider in providers_list:
+
+            provider['installation'] = [
+                'pip install qiskit',
+                provider['installation']
+            ]
+
             provider_setup_code = []
             provider['codeExamples'] = []
 

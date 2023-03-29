@@ -6,7 +6,10 @@
     {
       "title": "IBM Quantum Platform",
       "description": "IBM Quantum platform offers access to IBM Quantum systems and simulators.",
-      "installation": "pip install qiskit-ibm-provider",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-ibm-provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://quantum-computing.ibm.com/services?services=systems"
@@ -51,7 +54,10 @@
     {
       "title": "IonQ",
       "description": "IonQ is quantum computing hardware and software company that develops general-purpose trapped ion quantum computers.",
-      "installation": "pip install qiskit-ionq",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-ionq"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://ionq.com/"
@@ -95,7 +101,10 @@
     {
       "title": "Quantinuum",
       "description": "Formally Honeywell, Quantinuum focuses on trapped-ion computing.",
-      "installation": "pip install qiskit-quantinuum-provider",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-quantinuum-provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.quantinuum.com/"
@@ -139,7 +148,10 @@
     {
       "title": "AQT",
       "description": "AQT provides to partners ion-trap quantum system that operate at room temperature.",
-      "installation": "pip install qiskit-aqt-provider",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-aqt-provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.aqt.eu/qc-systems/"
@@ -183,7 +195,10 @@
     {
       "title": "Rigetti",
       "description": null,
-      "installation": "pip install qiskit-rigetti",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-rigetti"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.rigetti.com/"
@@ -227,7 +242,10 @@
     {
       "title": "IQM",
       "description": "Qiskit adapter for IQM\u2019s quantum computers.",
-      "installation": "pip install qiskit-iqm",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-iqm"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.meetiqm.com/"

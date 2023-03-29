@@ -6,7 +6,10 @@
     {
       "title": "Qiskit Standalone",
       "description": "Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.",
-      "installation": null,
+      "installation": [
+        "pip install qiskit",
+        null
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://qiskit.org/"

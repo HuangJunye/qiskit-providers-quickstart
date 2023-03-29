@@ -6,7 +6,10 @@
     {
       "title": "IBM Quantum Platform",
       "description": "IBM Quantum platform offers access to IBM Quantum systems and simulators.",
-      "installation": "pip install qiskit-ibm-provider",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-ibm-provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://quantum-computing.ibm.com/services/resources?tab=simulators"

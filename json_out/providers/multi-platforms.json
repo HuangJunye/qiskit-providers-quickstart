@@ -6,7 +6,10 @@
     {
       "title": "Azure Quantum",
       "description": "Qiskit provider for IonQ backends.",
-      "installation": "pip install \"azure-quantum[qiskit]\"",
+      "installation": [
+        "pip install qiskit",
+        "pip install \"azure-quantum[qiskit]\""
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://aka.ms/aq"
@@ -50,7 +53,10 @@
     {
       "title": "Amazon Braket",
       "description": "Execute Qiskit programs on AWS quantum computing hardware devices through Amazon Braket",
-      "installation": "pip install qiskit_braket_provider",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit_braket_provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://aws.amazon.com/braket/"
@@ -94,7 +100,10 @@
     {
       "title": "SuperstaQ",
       "description": "A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.",
-      "installation": "pip install qiskit-superstaq",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-superstaq"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.super.tech/about-superstaq/"
@@ -138,7 +147,10 @@
     {
       "title": "QC Ware Forge",
       "description": null,
-      "installation": null,
+      "installation": [
+        "pip install qiskit",
+        null
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://forge.qcware.com/"
@@ -182,7 +194,10 @@
     {
       "title": "Gaqqie",
       "description": "An open-source quantum computer cloud platform",
-      "installation": "pip install gaqqie-door",
+      "installation": [
+        "pip install qiskit",
+        "pip install gaqqie-door"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": null
@@ -228,7 +243,10 @@
     {
       "title": "Strangeworks",
       "description": null,
-      "installation": "pip install strangeworks-qiskit",
+      "installation": [
+        "pip install qiskit",
+        "pip install strangeworks-qiskit"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://strangeworks.com/"
