@@ -5,7 +5,6 @@
   "providers": [
     {
       "title": "Azure Quantum",
-      "image": null,
       "description": "Qiskit provider for IonQ backends.",
       "installation": "pip install \"azure-quantum[qiskit]\"",
       "websiteCta": {
@@ -50,7 +49,6 @@
     },
     {
       "title": "Amazon Braket",
-      "image": null,
       "description": "Execute Qiskit programs on AWS quantum computing hardware devices through Amazon Braket",
       "installation": "pip install qiskit_braket_provider",
       "websiteCta": {
@@ -95,7 +93,6 @@
     },
     {
       "title": "SuperstaQ",
-      "image": null,
       "description": "A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.",
       "installation": "pip install qiskit-superstaq",
       "websiteCta": {
@@ -140,7 +137,6 @@
     },
     {
       "title": "QC Ware Forge",
-      "image": null,
       "description": null,
       "installation": null,
       "websiteCta": {
@@ -185,7 +181,6 @@
     },
     {
       "title": "Gaqqie",
-      "image": null,
       "description": "An open-source quantum computer cloud platform",
       "installation": "pip install gaqqie-door",
       "websiteCta": {
@@ -232,7 +227,6 @@
     },
     {
       "title": "Strangeworks",
-      "image": null,
       "description": null,
       "installation": "pip install strangeworks-qiskit",
       "websiteCta": {

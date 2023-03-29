@@ -5,7 +5,6 @@
   "providers": [
     {
       "title": "IBM Quantum Platform",
-      "image": "/images/providers/qiskit-ibm-provider.png",
       "description": "IBM Quantum platform offers access to IBM Quantum systems and simulators.",
       "installation": "pip install qiskit-ibm-provider",
       "websiteCta": {
@@ -51,7 +50,6 @@
     },
     {
       "title": "IonQ",
-      "image": null,
       "description": "IonQ is quantum computing hardware and software company that develops general-purpose trapped ion quantum computers.",
       "installation": "pip install qiskit-ionq",
       "websiteCta": {
@@ -96,7 +94,6 @@
     },
     {
       "title": "Quantinuum",
-      "image": null,
       "description": "Formally Honeywell, Quantinuum focuses on trapped-ion computing.",
       "installation": "pip install qiskit-quantinuum-provider",
       "websiteCta": {
@@ -141,7 +138,6 @@
     },
     {
       "title": "AQT",
-      "image": null,
       "description": "AQT provides to partners ion-trap quantum system that operate at room temperature.",
       "installation": "pip install qiskit-aqt-provider",
       "websiteCta": {
@@ -186,7 +182,6 @@
     },
     {
       "title": "Rigetti",
-      "image": null,
       "description": null,
       "installation": "pip install qiskit-rigetti",
       "websiteCta": {
@@ -231,7 +226,6 @@
     },
     {
       "title": "IQM",
-      "image": null,
       "description": "Qiskit adapter for IQM\u2019s quantum computers.",
       "installation": "pip install qiskit-iqm",
       "websiteCta": {
