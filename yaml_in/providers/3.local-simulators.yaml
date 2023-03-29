@@ -3,7 +3,6 @@ title: Local Simulators
 description: Software packages that allow users to simulate quantum programs in your local computer.
 providers:
   - title: Aer
-    image: null
     description: Aer is a high performance simulator for quantum circuits that includes noise models.
     installation: pip install qiskit-aer
     websiteCta:
@@ -23,7 +22,6 @@ providers:
         from qiskit_aer import AerSimulator
         backend = AerSimulator()
   - title: NVIDIA cuQuantum Appliance
-    image: null
     description: The NVIDIA cuQuantum Appliance is a highly performant multi-GPU multi-node
       solution for quantum circuit simulation.
     installation: docker pull nvcr.io/nvidia/cuquantum-appliance
@@ -41,7 +39,6 @@ providers:
         from cusvaer.backends import StatevectorSimulator
         backend = StatevectorSimulator()
   - title: MQT DDSIM
-    image: null
     description: MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++
     installation: pip install mqt.ddsim
     websiteCta:
@@ -59,7 +56,6 @@ providers:
         provider = ddsim.DDSIMProvider()
         backend = provider.get_backend('qasm_simulator')
   - title: QuaC
-    image: null
     description: QuaC is a time dependent open quantum systems solver.
     installation: |-
       git clone https://github.com/0tt3r/QuaC-qiskit

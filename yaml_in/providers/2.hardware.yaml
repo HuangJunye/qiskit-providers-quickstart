@@ -3,7 +3,6 @@ title: Quantum Hardware
 description: Cloud services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
 providers:
   - title: IBM Quantum Platform
-    image: /images/providers/qiskit-ibm-provider.png
     description: IBM Quantum platform offers access to IBM Quantum systems and simulators.
     installation: pip install qiskit-ibm-provider
     websiteCta:
@@ -22,7 +21,6 @@ providers:
         provider = IBMProvider()
         backend = provider.get_backend("ibm_nairobi")
   - title: IonQ
-    image: null
     description: IonQ is quantum computing hardware and software company that develops general-purpose trapped ion quantum computers.
     installation: pip install qiskit-ionq
     websiteCta:
@@ -40,7 +38,6 @@ providers:
         provider = IonQProvider("MY_IONQ_TOKEN")
         backend = provider.get_backend("ionq_simulator")
   - title: Quantinuum
-    image: null
     description: Formally Honeywell, Quantinuum focuses on trapped-ion computing.
     installation: pip install qiskit-quantinuum-provider
     websiteCta:
@@ -58,7 +55,6 @@ providers:
         Quantinuum.save_account("username@company.com")
         backend = Quantinuum.get_backend("DEVICE_NAME")
   - title: AQT
-    image: null
     description: AQT provides to partners ion-trap quantum system that operate at room temperature.
     installation: pip install qiskit-aqt-provider
     websiteCta:
@@ -76,7 +72,6 @@ providers:
         aqt = AQTProvider('MY_TOKEN')
         backend = aqt.get_backend('aqt_qasm_simulator')
   - title: Rigetti
-    image: null
     description: null
     installation: pip install qiskit-rigetti
     websiteCta:
@@ -94,7 +89,6 @@ providers:
         provider = RigettiQCSProvider()
         backend = provider.get_backend(name="Aspen-9")
   - title: IQM
-    image: null
     description: Qiskit adapter for IQM’s quantum computers.
     installation: pip install qiskit-iqm
     websiteCta:

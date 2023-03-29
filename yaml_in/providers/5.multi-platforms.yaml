@@ -3,7 +3,6 @@ title: Multi-platforms
 description: Cloud services that allow you to connect with several quantum services from different vendors.
 providers:
   - title: Azure Quantum
-    image: null
     description: Qiskit provider for IonQ backends.
     installation: pip install "azure-quantum[qiskit]"
     websiteCta:
@@ -22,7 +21,6 @@ providers:
         backend = provider.get_backend("ionq.simulator")
 
   - title: Amazon Braket
-    image: null
     description: Execute Qiskit programs on AWS quantum computing hardware devices through
       Amazon Braket
     installation: pip install qiskit_braket_provider
@@ -41,7 +39,6 @@ providers:
         provider = AWSBraketProvider()
         backend = provider.backends("SV1")
   - title: SuperstaQ
-    image: null
     description: A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
     installation: pip install qiskit-superstaq
     websiteCta:
@@ -59,7 +56,6 @@ providers:
         provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
         backend = provider.get_backend("ibmq_qasm_simulator")
   - title: QC Ware Forge
-    image: null
     description: null
     installation: 
     websiteCta:
@@ -77,7 +73,6 @@ providers:
         provider = QcwareProvider()
         backend = provider.get_backend('forge_statevector')
   - title: Gaqqie
-    image: null
     description: An open-source quantum computer cloud platform
     installation: pip install gaqqie-door
     websiteCta:
@@ -97,7 +92,6 @@ providers:
         QiskitGaqqie.enable_account(url)
         backend = QiskitGaqqie.get_backend("qiskit_simulator")
   - title: Strangeworks
-    image: null
     description: null
     installation: pip install strangeworks-qiskit
     websiteCta:
