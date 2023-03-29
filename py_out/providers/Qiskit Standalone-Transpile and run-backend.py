@@ -1,6 +1,5 @@
-from qiskit_qcware import QcwareProvider
-provider = QcwareProvider()
-backend = provider.get_backend('forge_statevector')
+from qiskit.providers.basicaer import BasicAer
+backend = BasicAer.get_backend('qasm_simulator')
 
 # Build circuit
 from qiskit import QuantumCircuit
