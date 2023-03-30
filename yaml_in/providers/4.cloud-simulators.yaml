@@ -2,8 +2,8 @@ id: cloud-simulators
 title: Cloud Simulators
 description: Cloud services that allow you to simulate quantum programs in high performance computers.
 providers:
-  - title: IBM Quantum Platform
-    description: IBM Quantum platform offers access to IBM Quantum systems and simulators.
+  - title: IBM Quantum
+    description: IBM Quantum features a collection of high-performance simulators for prototyping quantum circuits and algorithms, and exploring their performance under realistic device noise models.
     installation: pip install qiskit-ibm-provider
     websiteCta:
       label: Website
@@ -17,7 +17,6 @@ providers:
     code: 
       backend: |-
         from qiskit_ibm_provider import IBMProvider
-
         provider = IBMProvider()
-        backend = provider.get_backend("ibmq_qasm_simulator")
+        backend = provider.get_backend("simulator_statevector")
 
