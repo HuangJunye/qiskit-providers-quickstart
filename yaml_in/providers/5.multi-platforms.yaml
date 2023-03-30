@@ -2,24 +2,6 @@ id: multi-platforms
 title: Multi-platforms
 description: Cloud services that allow you to connect with several quantum services from different vendors.
 providers:
-  - title: Azure Quantum
-    description: Qiskit provider for IonQ backends.
-    installation: pip install "azure-quantum[qiskit]"
-    websiteCta:
-      label: Website
-      url: https://aka.ms/aq
-    docsCta:
-      label: Docs
-      url: https://aka.ms/AQ/Qiskit/QuickStart
-    sourceCta:
-      label: null
-      url: null
-    code: 
-      backend: |-
-        from azure.quantum.qiskit import AzureQuantumProvider
-        provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
-        backend = provider.get_backend("ionq.simulator")
-
   - title: Amazon Braket
     description: Execute Qiskit programs on AWS quantum computing hardware devices through
       Amazon Braket
@@ -38,40 +20,23 @@ providers:
         from qiskit_braket_provider import AWSBraketProvider
         provider = AWSBraketProvider()
         backend = provider.backends("SV1")
-  - title: SuperstaQ
-    description: A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
-    installation: pip install qiskit-superstaq
+  - title: Azure Quantum
+    description: Qiskit provider for IonQ backends.
+    installation: pip install "azure-quantum[qiskit]"
     websiteCta:
       label: Website
-      url: https://www.super.tech/about-superstaq/
+      url: https://aka.ms/aq
     docsCta:
       label: Docs
+      url: https://aka.ms/AQ/Qiskit/QuickStart
+    sourceCta:
+      label: null
       url: null
-    sourceCta:
-      label: GitHub
-      url: https://github.com/SupertechLabs/qiskit-superstaq
-    code:
+    code: 
       backend: |-
-        from qiskit_superstaq import SuperstaQProvider
-        provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
-        backend = provider.get_backend("ibmq_qasm_simulator")
-  - title: QC Ware Forge
-    description: null
-    installation: 
-    websiteCta:
-      label: Website
-      url: https://forge.qcware.com/
-    docsCta:
-      label: Docs
-      url: https://github.com/qcware/qiskit_qcware/blob/master/notebooks/basic_demo.ipynb
-    sourceCta:
-      label: GitHub
-      url: https://github.com/qcware/qiskit_qcware
-    code:
-      backend: |-
-        from qiskit_qcware import QcwareProvider
-        provider = QcwareProvider()
-        backend = provider.get_backend('forge_statevector')
+        from azure.quantum.qiskit import AzureQuantumProvider
+        provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
+        backend = provider.get_backend("ionq.simulator")
   - title: Gaqqie
     description: An open-source quantum computer cloud platform
     installation: pip install gaqqie-door
@@ -91,6 +56,23 @@ providers:
         url = "https://<api-id>.execute-api.<region>.amazonaws.com/<stage>"
         QiskitGaqqie.enable_account(url)
         backend = QiskitGaqqie.get_backend("qiskit_simulator")
+  - title: QC Ware Forge
+    description: null
+    installation: 
+    websiteCta:
+      label: Website
+      url: https://forge.qcware.com/
+    docsCta:
+      label: Docs
+      url: https://github.com/qcware/qiskit_qcware/blob/master/notebooks/basic_demo.ipynb
+    sourceCta:
+      label: GitHub
+      url: https://github.com/qcware/qiskit_qcware
+    code:
+      backend: |-
+        from qiskit_qcware import QcwareProvider
+        provider = QcwareProvider()
+        backend = provider.get_backend('forge_statevector')
   - title: Strangeworks
     description: null
     installation: pip install strangeworks-qiskit
@@ -110,4 +92,21 @@ providers:
         # get your API key from the Strangeworks Portal
         strangeworks.authenticate(api_key="your-api-key")
         provider = StrangeworksProvider()
+        backend = provider.get_backend("ibmq_qasm_simulator")
+  - title: SuperstaQ
+    description: A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
+    installation: pip install qiskit-superstaq
+    websiteCta:
+      label: Website
+      url: https://www.super.tech/about-superstaq/
+    docsCta:
+      label: Docs
+      url: null
+    sourceCta:
+      label: GitHub
+      url: https://github.com/SupertechLabs/qiskit-superstaq
+    code:
+      backend: |-
+        from qiskit_superstaq import SuperstaQProvider
+        provider = SuperstaQProvider("MY_SUPERSTAQ_TOKEN")
         backend = provider.get_backend("ibmq_qasm_simulator")
