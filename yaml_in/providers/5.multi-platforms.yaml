@@ -3,8 +3,7 @@ title: Multi-platforms
 description: Cloud services that allow you to connect with several quantum services from different vendors.
 providers:
   - title: Amazon Braket
-    description: Execute Qiskit programs on AWS quantum computing hardware devices through
-      Amazon Braket
+    description: Amazon Braket is a fully managed quantum computing service designed to help speed up scientific research and software development for quantum computing. 
     installation: pip install qiskit_braket_provider
     websiteCta:
       label: Website
@@ -21,7 +20,7 @@ providers:
         provider = AWSBraketProvider()
         backend = provider.backends("SV1")
   - title: Azure Quantum
-    description: Qiskit provider for IonQ backends.
+    description: Azure Quantum is the cloud quantum computing service of Azure, with a diverse set of quantum solutions and technologies.
     installation: pip install "azure-quantum[qiskit]"
     websiteCta:
       label: Website
@@ -38,14 +37,14 @@ providers:
         provider = AzureQuantumProvider(resource_id="MY_RESOURCE_ID",location="MY_LOCATION")
         backend = provider.get_backend("ionq.simulator")
   - title: Gaqqie
-    description: An open-source quantum computer cloud platform
+    description: Gaqqie is an open-source quantum computer cloud platform.
     installation: pip install gaqqie-door
     websiteCta:
       label: Website
       url: null
     docsCta:
       label: Docs
-      url: null
+      url: https://github.com/gaqqie/gaqqie/blob/main/docs/document.pdf
     sourceCta:
       label: GitHub
       url: https://github.com/gaqqie/gaqqie
@@ -57,8 +56,8 @@ providers:
         QiskitGaqqie.enable_account(url)
         backend = QiskitGaqqie.get_backend("qiskit_simulator")
   - title: QC Ware Forge
-    description: null
-    installation: 
+    description: QC Ware Forge is an unique and efficient turn-key algorithms for Data Scientists and powerful circuit building blocks for Quantum Engineers. 
+    installation: pip install qiskit-qcware
     websiteCta:
       label: Website
       url: https://forge.qcware.com/
@@ -74,7 +73,7 @@ providers:
         provider = QcwareProvider()
         backend = provider.get_backend('forge_statevector')
   - title: Strangeworks
-    description: null
+    description: Strangeworks is the ultimate collaboration of hardware, software, education, and service providers, working to develop and test quantum and future compute technologies.
     installation: pip install strangeworks-qiskit
     websiteCta:
       label: Website
@@ -94,7 +93,7 @@ providers:
         provider = StrangeworksProvider()
         backend = provider.get_backend("ibmq_qasm_simulator")
   - title: SuperstaQ
-    description: A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
+    description: SuperstaQ is a hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.
     installation: pip install qiskit-superstaq
     websiteCta:
       label: Website
