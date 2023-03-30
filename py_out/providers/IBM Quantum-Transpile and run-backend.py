@@ -1,7 +1,7 @@
 from qiskit_ibm_provider import IBMProvider
-
+IBMProvider.save_account("MY_IBM_QUANTUM_TOKEN")
 provider = IBMProvider()
-backend = provider.get_backend("ibmq_qasm_simulator")
+backend = provider.get_backend("ibm_nairobi")
 
 # Build circuit
 from qiskit import QuantumCircuit
