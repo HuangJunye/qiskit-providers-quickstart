@@ -36,3 +36,20 @@ providers:
         from qiskit_ionq import IonQProvider
         provider = IonQProvider("MY_IONQ_TOKEN")
         backend = provider.get_backend("ionq_simulator")
+  - title: Rigetti Quantum Virtual Machine (QVM)
+    description: The Rigetti Quantum Virtual Machine is a wavefunction simulation of unitary evolution with classical control flow and shared quantum classical memory.
+    installation: pip install qiskit-rigetti
+    websiteCta:
+      label: Website
+      url: https://www.rigetti.com/applications/qvm
+    docsCta:
+      label: Docs
+      url: https://qiskit-rigetti.readthedocs.io/en/latest/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/rigetti/qiskit-rigetti
+    code:
+      backend: |-
+        from qiskit_rigetti import RigettiQCSProvider
+        provider = RigettiQCSProvider()
+        backend = provider.get_simulator(num_qubits=5, noisy=True)
