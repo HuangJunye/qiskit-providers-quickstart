@@ -2,6 +2,23 @@ id: hardware
 title: Quantum Hardware
 description: Cloud services that allow users to execute quantum programs in specialized hardware that leverages quantum mechanical phenomena for quantum computation.
 providers:
+  - title: AQT
+    description: AQT provides access to Calcium trapped-ion quantum devices.
+    installation: pip install qiskit-aqt-provider
+    websiteCta:
+      label: Website
+      url: https://www.aqt.eu/qc-systems/
+    docsCta:
+      label: Docs
+      url: https://qiskit.org/documentation/partners/aqt/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/Qiskit-Partners/qiskit-aqt-provider
+    code:
+      backend: |-
+        from qiskit_aqt_provider import AQTProvider
+        aqt = AQTProvider('MY_TOKEN')
+        backend = aqt.get_backend('aqt_qasm_simulator')
   - title: IBM Quantum
     description: IBM Quantum offers both open and premium access to a wide variety of quantum systems. All quantum systems deployed by IBM Quantum are based on superconducting qubit technology, as the control and scalability of this technology pave a clear path to achieving quantum advantage with these systems.
     installation: pip install qiskit-ibm-provider
@@ -37,57 +54,6 @@ providers:
         from qiskit_ionq import IonQProvider
         provider = IonQProvider("MY_IONQ_TOKEN")
         backend = provider.get_backend("ionq_simulator")
-  - title: Quantinuum
-    description: Quantinuum provides access to Ytterbium trapped-ion systems with high-fidelity, fully connected qubits, and the ability to perform mid-circuit measurement.
-    installation: pip install qiskit-quantinuum-provider
-    websiteCta:
-      label: Website
-      url: https://www.quantinuum.com/
-    docsCta:
-      label: Docs
-      url: https://github.com/qiskit-community/qiskit-quantinuum-provider/blob/master/examples/QuantinuumExample.ipynb
-    sourceCta:
-      label: GitHub
-      url: https://github.com/qiskit-community/qiskit-quantinuum-provider
-    code:
-      backend: |-
-        from qiskit_quantinuum import Quantinuum
-        Quantinuum.save_account("username@company.com")
-        backend = Quantinuum.get_backend("DEVICE_NAME")
-  - title: AQT
-    description: AQT provides access to Calcium trapped-ion quantum devices.
-    installation: pip install qiskit-aqt-provider
-    websiteCta:
-      label: Website
-      url: https://www.aqt.eu/qc-systems/
-    docsCta:
-      label: Docs
-      url: https://qiskit.org/documentation/partners/aqt/
-    sourceCta:
-      label: GitHub
-      url: https://github.com/Qiskit-Partners/qiskit-aqt-provider
-    code:
-      backend: |-
-        from qiskit_aqt_provider import AQTProvider
-        aqt = AQTProvider('MY_TOKEN')
-        backend = aqt.get_backend('aqt_qasm_simulator')
-  - title: Rigetti
-    description: Rigetti offers access to universal, gate-model machines based on tunable superconducting qubits.
-    installation: pip install qiskit-rigetti
-    websiteCta:
-      label: Website
-      url: https://www.rigetti.com/
-    docsCta:
-      label: Docs
-      url: https://qiskit-rigetti.readthedocs.io/en/latest/
-    sourceCta:
-      label: GitHub
-      url: https://github.com/rigetti/qiskit-rigetti
-    code:
-      backend: |-
-        from qiskit_rigetti import RigettiQCSProvider
-        provider = RigettiQCSProvider()
-        backend = provider.get_backend(name="Aspen-9")
   - title: IQM
     description: IQM offers access to gate-model based superconducting qubits quantum systems.
     installation: pip install qiskit-iqm
@@ -105,3 +71,37 @@ providers:
         from qiskit_iqm import IQMProvider
         provider = IQMProvider(iqm_server_url)
         backend = provider.get_backend()
+  - title: Quantinuum
+    description: Quantinuum provides access to Ytterbium trapped-ion systems with high-fidelity, fully connected qubits, and the ability to perform mid-circuit measurement.
+    installation: pip install qiskit-quantinuum-provider
+    websiteCta:
+      label: Website
+      url: https://www.quantinuum.com/
+    docsCta:
+      label: Docs
+      url: https://github.com/qiskit-community/qiskit-quantinuum-provider/blob/master/examples/QuantinuumExample.ipynb
+    sourceCta:
+      label: GitHub
+      url: https://github.com/qiskit-community/qiskit-quantinuum-provider
+    code:
+      backend: |-
+        from qiskit_quantinuum import Quantinuum
+        Quantinuum.save_account("username@company.com")
+        backend = Quantinuum.get_backend("DEVICE_NAME")
+  - title: Rigetti
+    description: Rigetti offers access to universal, gate-model machines based on tunable superconducting qubits.
+    installation: pip install qiskit-rigetti
+    websiteCta:
+      label: Website
+      url: https://www.rigetti.com/
+    docsCta:
+      label: Docs
+      url: https://qiskit-rigetti.readthedocs.io/en/latest/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/rigetti/qiskit-rigetti
+    code:
+      backend: |-
+        from qiskit_rigetti import RigettiQCSProvider
+        provider = RigettiQCSProvider()
+        backend = provider.get_backend(name="Aspen-9")
