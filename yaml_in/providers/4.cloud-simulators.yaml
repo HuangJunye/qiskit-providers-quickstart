@@ -19,4 +19,20 @@ providers:
         from qiskit_ibm_provider import IBMProvider
         provider = IBMProvider()
         backend = provider.get_backend("simulator_statevector")
-
+  - title: IonQ
+    description: The IonQ Quantum Cloud providers 29-qubit cloud simulator.
+    installation: pip install qiskit-ionq
+    websiteCta:
+      label: Website
+      url: https://ionq.com/resources/the-value-of-classical-quantum-simulators
+    docsCta:
+      label: Docs
+      url: https://qiskit.org/documentation/partners/ionq/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/Qiskit-Partners/qiskit-ionq
+    code:
+      backend: |-
+        from qiskit_ionq import IonQProvider
+        provider = IonQProvider("MY_IONQ_TOKEN")
+        backend = provider.get_backend("ionq_simulator")

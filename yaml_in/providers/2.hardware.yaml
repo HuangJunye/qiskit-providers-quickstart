@@ -53,7 +53,7 @@ providers:
       backend: |-
         from qiskit_ionq import IonQProvider
         provider = IonQProvider("MY_IONQ_TOKEN")
-        backend = provider.get_backend("ionq_simulator")
+        backend = provider.get_backend("ionq_qpu")
   - title: IQM
     description: IQM offers access to gate-model based superconducting qubits quantum systems.
     installation: pip install qiskit-iqm
