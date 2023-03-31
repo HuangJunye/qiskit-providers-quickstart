@@ -21,6 +21,13 @@ for category in sorted(os.listdir(providers_dir)):
         providers_list = category_dict['providers']
 
         for provider in providers_list:
+
+            # add 'pip install qiskit' to all installation command
+            provider['installation'] = [
+                'pip install qiskit',
+                provider['installation']
+            ]
+            
             provider_setup_code = []
             provider['codeExamples'] = []
 
@@ -28,8 +35,13 @@ for category in sorted(os.listdir(providers_dir)):
                 algorithm_code = algorithm['code'].splitlines()
 
                 if algorithm['runMethod'] == 'backend':
-                    # create empty code lines if provider does not support backend run
-                    algorithm_code = []
+                    if algorithm['name'] == 'Transpiling':
+                        if provider['code'].get('backend'):
+                            provider_setup_code = provider['code']['backend'].splitlines()
+                        else:
+                            algorithm_code = []
+                    else:
+                        algorithm_code = []
                 else:
                     # primitive.run
                     if provider['code'].get('sampler'):

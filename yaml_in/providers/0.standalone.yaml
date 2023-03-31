@@ -2,9 +2,9 @@ id: standalone
 title: Qiskit Stand-alone
 description: Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.
 providers:
-  - title: Qiskit Standalone
+  - title: Qiskit Stand-alone
     description: Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.
-    installation:
+    installation: null
     websiteCta:
       label: Website
       url: https://qiskit.org/

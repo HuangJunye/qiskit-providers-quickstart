@@ -5,16 +5,18 @@
   "providers": [
     {
       "title": "Aer",
-      "image": null,
       "description": "Aer is a high performance simulator for quantum circuits that includes noise models.",
-      "installation": "pip install qiskit-aer",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-aer"
+      ],
       "websiteCta": {
         "label": null,
         "url": null
       },
       "docsCta": {
         "label": "Docs",
-        "url": "https://qiskit.org/documentation/aer/"
+        "url": "https://qiskit.org/ecosystem/aer/"
       },
       "sourceCta": {
         "label": "GitHub",
@@ -48,54 +50,12 @@
       ]
     },
     {
-      "title": "NVIDIA cuQuantum Appliance",
-      "image": null,
-      "description": "The NVIDIA cuQuantum Appliance is a highly performant multi-GPU multi-node solution for quantum circuit simulation.",
-      "installation": "docker pull nvcr.io/nvidia/cuquantum-appliance",
-      "websiteCta": {
-        "label": "Website",
-        "url": "https://developer.nvidia.com/cuquantum-sdk"
-      },
-      "docsCta": {
-        "label": "Docs",
-        "url": "https://docs.nvidia.com/cuda/cuquantum/index.html"
-      },
-      "sourceCta": {
-        "label": "GitHub",
-        "url": "https://github.com/NVIDIA/cuQuantum"
-      },
-      "codeExamples": [
-        {
-          "name": "Transpile and run",
-          "runMethod": "backend",
-          "fullCode": [
-            "from cusvaer.backends import StatevectorSimulator",
-            "backend = StatevectorSimulator()",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Transpile circuit",
-            "from qiskit import transpile",
-            "transpiled_circuit = transpile(circuit, backend)",
-            "&nbsp;",
-            "# Run the circuit and get result",
-            "job = backend.run(transpiled_circuit)",
-            "counts = job.result().get_counts()",
-            "print(counts)"
-          ]
-        }
-      ]
-    },
-    {
       "title": "MQT DDSIM",
-      "image": null,
-      "description": "MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++",
-      "installation": "pip install mqt.ddsim",
+      "description": "MQT DDSIM is a quantum circuit simulator based on decision diagrams written in C++.",
+      "installation": [
+        "pip install qiskit",
+        "pip install mqt.ddsim"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://www.cda.cit.tum.de/research/quantum_simulation/"
@@ -137,17 +97,65 @@
       ]
     },
     {
-      "title": "QuaC",
-      "image": null,
-      "description": "QuaC is a time dependent open quantum systems solver.",
-      "installation": "git clone https://github.com/0tt3r/QuaC-qiskit\ncd QuaC-qiskit\npip install .",
+      "title": "NVIDIA cuStateVec",
+      "description": "NVIDIA cuStateVec is a high-performance library dedicated to operations with state vectors for expressing quantum algorithms.",
+      "installation": [
+        "pip install qiskit",
+        "conda install -c conda-forge custatevec"
+      ],
       "websiteCta": {
         "label": "Website",
-        "url": null
+        "url": "https://developer.nvidia.com/cuquantum-sdk"
       },
       "docsCta": {
         "label": "Docs",
-        "url": null
+        "url": "https://docs.nvidia.com/cuda/cuquantum/custatevec/index.html"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/NVIDIA/cuQuantum"
+      },
+      "codeExamples": [
+        {
+          "name": "Transpile and run",
+          "runMethod": "backend",
+          "fullCode": [
+            "from cusvaer.backends import StatevectorSimulator",
+            "backend = StatevectorSimulator()",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Transpile circuit",
+            "from qiskit import transpile",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "QuaC",
+      "description": "QuaC is a parallel time dependent open quantum systems solver.",
+      "installation": [
+        "pip install qiskit",
+        "git clone https://github.com/0tt3r/QuaC-qiskit\ncd QuaC-qiskit\npip install ."
+      ],
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://0tt3r.github.io/QuaC/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://github.com/0tt3r/QuaC-qiskit/tree/master/examples/demos"
       },
       "sourceCta": {
         "label": "GitHub",

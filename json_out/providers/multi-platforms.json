@@ -4,55 +4,12 @@
   "description": "Cloud services that allow you to connect with several quantum services from different vendors.",
   "providers": [
     {
-      "title": "Azure Quantum",
-      "image": null,
-      "description": "Qiskit provider for IonQ backends.",
-      "installation": "pip install \"azure-quantum[qiskit]\"",
-      "websiteCta": {
-        "label": "Website",
-        "url": "https://aka.ms/aq"
-      },
-      "docsCta": {
-        "label": "Docs",
-        "url": "https://aka.ms/AQ/Qiskit/QuickStart"
-      },
-      "sourceCta": {
-        "label": null,
-        "url": null
-      },
-      "codeExamples": [
-        {
-          "name": "Transpile and run",
-          "runMethod": "backend",
-          "fullCode": [
-            "from azure.quantum.qiskit import AzureQuantumProvider",
-            "provider = AzureQuantumProvider(resource_id=\"MY_RESOURCE_ID\",location=\"MY_LOCATION\")",
-            "backend = provider.get_backend(\"ionq.simulator\")",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Transpile circuit",
-            "from qiskit import transpile",
-            "transpiled_circuit = transpile(circuit, backend)",
-            "&nbsp;",
-            "# Run the circuit and get result",
-            "job = backend.run(transpiled_circuit)",
-            "counts = job.result().get_counts()",
-            "print(counts)"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Amazon Braket",
-      "image": null,
-      "description": "Execute Qiskit programs on AWS quantum computing hardware devices through Amazon Braket",
-      "installation": "pip install qiskit_braket_provider",
+      "description": "Amazon Braket is a fully managed quantum computing service designed to help speed up scientific research and software development for quantum computing.",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit_braket_provider"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://aws.amazon.com/braket/"
@@ -94,30 +51,81 @@
       ]
     },
     {
-      "title": "SuperstaQ",
-      "image": null,
-      "description": "A hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.",
-      "installation": "pip install qiskit-superstaq",
+      "title": "Azure Quantum",
+      "description": "Azure Quantum is the cloud quantum computing service of Azure, with a diverse set of quantum solutions and technologies.",
+      "installation": [
+        "pip install qiskit",
+        "pip install \"azure-quantum[qiskit]\""
+      ],
       "websiteCta": {
         "label": "Website",
-        "url": "https://www.super.tech/about-superstaq/"
+        "url": "https://aka.ms/aq"
       },
       "docsCta": {
         "label": "Docs",
-        "url": null
+        "url": "https://aka.ms/AQ/Qiskit/QuickStart"
       },
       "sourceCta": {
-        "label": "GitHub",
-        "url": "https://github.com/SupertechLabs/qiskit-superstaq"
+        "label": null,
+        "url": null
       },
       "codeExamples": [
         {
           "name": "Transpile and run",
           "runMethod": "backend",
           "fullCode": [
-            "from qiskit_superstaq import SuperstaQProvider",
-            "provider = SuperstaQProvider(\"MY_SUPERSTAQ_TOKEN\")",
-            "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
+            "from azure.quantum.qiskit import AzureQuantumProvider",
+            "provider = AzureQuantumProvider(resource_id=\"MY_RESOURCE_ID\",location=\"MY_LOCATION\")",
+            "backend = provider.get_backend(\"ionq.simulator\")",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Transpile circuit",
+            "from qiskit import transpile",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Gaqqie",
+      "description": "Gaqqie is an open-source quantum computer cloud platform.",
+      "installation": [
+        "pip install qiskit",
+        "pip install gaqqie-door"
+      ],
+      "websiteCta": {
+        "label": "Website",
+        "url": null
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": "https://github.com/gaqqie/gaqqie/blob/main/docs/document.pdf"
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/gaqqie/gaqqie"
+      },
+      "codeExamples": [
+        {
+          "name": "Transpile and run",
+          "runMethod": "backend",
+          "fullCode": [
+            "from gaqqie_door import QiskitGaqqie",
+            "# rewrite to the endpoint URL of the user API",
+            "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
+            "QiskitGaqqie.enable_account(url)",
+            "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
             "&nbsp;",
             "# Build circuit",
             "from qiskit import QuantumCircuit",
@@ -140,9 +148,11 @@
     },
     {
       "title": "QC Ware Forge",
-      "image": null,
-      "description": null,
-      "installation": null,
+      "description": "QC Ware Forge is an unique and efficient turn-key algorithms for Data Scientists and powerful circuit building blocks for Quantum Engineers.",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-qcware"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://forge.qcware.com/"
@@ -184,57 +194,12 @@
       ]
     },
     {
-      "title": "Gaqqie",
-      "image": null,
-      "description": "An open-source quantum computer cloud platform",
-      "installation": "pip install gaqqie-door",
-      "websiteCta": {
-        "label": "Website",
-        "url": null
-      },
-      "docsCta": {
-        "label": "Docs",
-        "url": null
-      },
-      "sourceCta": {
-        "label": "GitHub",
-        "url": "https://github.com/gaqqie/gaqqie"
-      },
-      "codeExamples": [
-        {
-          "name": "Transpile and run",
-          "runMethod": "backend",
-          "fullCode": [
-            "from gaqqie_door import QiskitGaqqie",
-            "# rewrite to the endpoint URL of the user API",
-            "url = \"https://<api-id>.execute-api.<region>.amazonaws.com/<stage>\"",
-            "QiskitGaqqie.enable_account(url)",
-            "backend = QiskitGaqqie.get_backend(\"qiskit_simulator\")",
-            "&nbsp;",
-            "# Build circuit",
-            "from qiskit import QuantumCircuit",
-            "circuit = QuantumCircuit(2, 2)",
-            "circuit.h(0)",
-            "circuit.cx(0,1)",
-            "circuit.measure([0,1], [0,1])",
-            "&nbsp;",
-            "# Transpile circuit",
-            "from qiskit import transpile",
-            "transpiled_circuit = transpile(circuit, backend)",
-            "&nbsp;",
-            "# Run the circuit and get result",
-            "job = backend.run(transpiled_circuit)",
-            "counts = job.result().get_counts()",
-            "print(counts)"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Strangeworks",
-      "image": null,
-      "description": null,
-      "installation": "pip install strangeworks-qiskit",
+      "description": "Strangeworks is the ultimate collaboration of hardware, software, education, and service providers, working to develop and test quantum and future compute technologies.",
+      "installation": [
+        "pip install qiskit",
+        "pip install strangeworks-qiskit"
+      ],
       "websiteCta": {
         "label": "Website",
         "url": "https://strangeworks.com/"
@@ -257,6 +222,53 @@
             "# get your API key from the Strangeworks Portal",
             "strangeworks.authenticate(api_key=\"your-api-key\")",
             "provider = StrangeworksProvider()",
+            "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
+            "&nbsp;",
+            "# Build circuit",
+            "from qiskit import QuantumCircuit",
+            "circuit = QuantumCircuit(2, 2)",
+            "circuit.h(0)",
+            "circuit.cx(0,1)",
+            "circuit.measure([0,1], [0,1])",
+            "&nbsp;",
+            "# Transpile circuit",
+            "from qiskit import transpile",
+            "transpiled_circuit = transpile(circuit, backend)",
+            "&nbsp;",
+            "# Run the circuit and get result",
+            "job = backend.run(transpiled_circuit)",
+            "counts = job.result().get_counts()",
+            "print(counts)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "SuperstaQ",
+      "description": "SuperstaQ is a hardware-agnostic software platform that connects applications to quantum computers from IBM Quantum, IonQ, and Rigetti.",
+      "installation": [
+        "pip install qiskit",
+        "pip install qiskit-superstaq"
+      ],
+      "websiteCta": {
+        "label": "Website",
+        "url": "https://www.super.tech/about-superstaq/"
+      },
+      "docsCta": {
+        "label": "Docs",
+        "url": null
+      },
+      "sourceCta": {
+        "label": "GitHub",
+        "url": "https://github.com/SupertechLabs/qiskit-superstaq"
+      },
+      "codeExamples": [
+        {
+          "name": "Transpile and run",
+          "runMethod": "backend",
+          "fullCode": [
+            "from qiskit_superstaq import SuperstaQProvider",
+            "provider = SuperstaQProvider(\"MY_SUPERSTAQ_TOKEN\")",
             "backend = provider.get_backend(\"ibmq_qasm_simulator\")",
             "&nbsp;",
             "# Build circuit",
