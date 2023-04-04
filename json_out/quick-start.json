@@ -1,5 +1,89 @@
 [
   {
+    "title": "Qiskit Stand-alone",
+    "description": "Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.",
+    "installation": [
+      "pip install qiskit"
+    ],
+    "websiteCta": {
+      "label": "Website",
+      "url": "https://qiskit.org/"
+    },
+    "docsCta": {
+      "label": "Docs",
+      "url": "https://qiskit.org/documentation/"
+    },
+    "sourceCta": {
+      "label": "GitHub",
+      "url": "https://github.com/Qiskit/qiskit-terra"
+    },
+    "codeExamples": [
+      {
+        "name": "Transpiling",
+        "runMethod": "backend",
+        "fullCode": [
+          "# Build circuit",
+          "from qiskit.circuit.library import QuantumVolume",
+          "circuit = QuantumVolume(5)",
+          "&nbsp;",
+          "# Transpile circuit",
+          "from qiskit import transpile",
+          "transpiled_circuit = transpile(circuit, basis_gates=['sx', 'rz', 'cx'])",
+          "transpiled_circuit.draw()"
+        ]
+      },
+      {
+        "name": "Sampling Bell Circuit",
+        "runMethod": "sampler",
+        "fullCode": [
+          "from qiskit.primitives import Sampler",
+          "sampler = Sampler()",
+          "&nbsp;",
+          "# Build circuit",
+          "from qiskit import QuantumCircuit",
+          "circuit = QuantumCircuit(2, 2)",
+          "circuit.h(0)",
+          "circuit.cx(0,1)",
+          "circuit.measure([0,1], [0,1])",
+          "&nbsp;",
+          "# Run the circuit and get result distribution",
+          "job = sampler.run(circuit)",
+          "quasi_dist = job.result().quasi_dists[0]",
+          "print(quasi_dist)"
+        ]
+      },
+      {
+        "name": "Running VQE",
+        "runMethod": "estimator",
+        "fullCode": [
+          "from qiskit.primitives import Estimator",
+          "estimator = Estimator()",
+          "&nbsp;",
+          "# Express hydrogen molecule Hamiltonian as an operator",
+          "from qiskit.quantum_info import SparsePauliOp",
+          "H2_operator = SparsePauliOp.from_list([",
+          "    (\"II\", -1.052373245772859),",
+          "    (\"IZ\", 0.39793742484318045),",
+          "    (\"ZI\", -0.39793742484318045),",
+          "    (\"ZZ\", -0.01128010425623538),",
+          "    (\"XX\", 0.18093119978423156)",
+          "])",
+          "&nbsp;",
+          "# Calculate ground state energy using VQE",
+          "from qiskit.circuit.library import TwoLocal",
+          "from qiskit.algorithms.optimizers import SLSQP",
+          "from qiskit.algorithms.minimum_eigensolvers import VQE",
+          "&nbsp;",
+          "ansatz = TwoLocal(num_qubits=2, rotation_blocks=\"ry\", entanglement_blocks=\"cz\")",
+          "optimizer = SLSQP(maxiter=100)",
+          "vqe = VQE(estimator, ansatz, optimizer)",
+          "result = vqe.compute_minimum_eigenvalue(operator=H2_operator)",
+          "print(result.eigenvalue)"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Aer",
     "description": "Aer is a high performance simulator for quantum circuits that includes noise models.",
     "installation": [
@@ -1093,90 +1177,6 @@
           "provider = QcwareProvider()",
           "backend = provider.get_backend('forge_statevector')",
           "estimator = BackendEstimator(backend)",
-          "&nbsp;",
-          "# Express hydrogen molecule Hamiltonian as an operator",
-          "from qiskit.quantum_info import SparsePauliOp",
-          "H2_operator = SparsePauliOp.from_list([",
-          "    (\"II\", -1.052373245772859),",
-          "    (\"IZ\", 0.39793742484318045),",
-          "    (\"ZI\", -0.39793742484318045),",
-          "    (\"ZZ\", -0.01128010425623538),",
-          "    (\"XX\", 0.18093119978423156)",
-          "])",
-          "&nbsp;",
-          "# Calculate ground state energy using VQE",
-          "from qiskit.circuit.library import TwoLocal",
-          "from qiskit.algorithms.optimizers import SLSQP",
-          "from qiskit.algorithms.minimum_eigensolvers import VQE",
-          "&nbsp;",
-          "ansatz = TwoLocal(num_qubits=2, rotation_blocks=\"ry\", entanglement_blocks=\"cz\")",
-          "optimizer = SLSQP(maxiter=100)",
-          "vqe = VQE(estimator, ansatz, optimizer)",
-          "result = vqe.compute_minimum_eigenvalue(operator=H2_operator)",
-          "print(result.eigenvalue)"
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Qiskit Stand-alone",
-    "description": "Run quantum circuits and algorithms using Qiskit as a stand-alone tool with its reference implementations of simulators.",
-    "installation": [
-      "pip install qiskit"
-    ],
-    "websiteCta": {
-      "label": "Website",
-      "url": "https://qiskit.org/"
-    },
-    "docsCta": {
-      "label": "Docs",
-      "url": "https://qiskit.org/documentation/"
-    },
-    "sourceCta": {
-      "label": "GitHub",
-      "url": "https://github.com/Qiskit/qiskit-terra"
-    },
-    "codeExamples": [
-      {
-        "name": "Transpiling",
-        "runMethod": "backend",
-        "fullCode": [
-          "# Build circuit",
-          "from qiskit.circuit.library import QuantumVolume",
-          "circuit = QuantumVolume(5)",
-          "&nbsp;",
-          "# Transpile circuit",
-          "from qiskit import transpile",
-          "transpiled_circuit = transpile(circuit, basis_gates=['sx', 'rz', 'cx'])",
-          "transpiled_circuit.draw()"
-        ]
-      },
-      {
-        "name": "Sampling Bell Circuit",
-        "runMethod": "sampler",
-        "fullCode": [
-          "from qiskit.primitives import Sampler",
-          "sampler = Sampler()",
-          "&nbsp;",
-          "# Build circuit",
-          "from qiskit import QuantumCircuit",
-          "circuit = QuantumCircuit(2, 2)",
-          "circuit.h(0)",
-          "circuit.cx(0,1)",
-          "circuit.measure([0,1], [0,1])",
-          "&nbsp;",
-          "# Run the circuit and get result distribution",
-          "job = sampler.run(circuit)",
-          "quasi_dist = job.result().quasi_dists[0]",
-          "print(quasi_dist)"
-        ]
-      },
-      {
-        "name": "Running VQE",
-        "runMethod": "estimator",
-        "fullCode": [
-          "from qiskit.primitives import Estimator",
-          "estimator = Estimator()",
           "&nbsp;",
           "# Express hydrogen molecule Hamiltonian as an operator",
           "from qiskit.quantum_info import SparsePauliOp",
