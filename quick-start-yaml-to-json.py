@@ -110,9 +110,16 @@ for category in sorted(os.listdir(providers_dir)):
 # 2) remove duplicate entries from different categories
 
 quick_start_list.sort(key=lambda d:d['title'].lower())
+# reverse to remove later entries and then reverse back to keep earlier entries
+# the first entry in the order of the categories are kept, namely
+# primitives > hardware > local simulators > cloud simulators > multi-platforms
+quick_start_list = list({i['title']:i for i in reversed(quick_start_list)}.values())
+quick_start_list.reverse()
 
 for provider in quick_start_list:
+    print("=========================")
     print(provider['title'])
+    #pprint(provider['codeExamples'][0])
 
 with open(os.path.join(json_dir, "quick-start.json"), "w") as json_out:
     print(f"We have {len(quick_start_list)} providers.")
