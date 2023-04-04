@@ -68,8 +68,8 @@ for category in sorted(os.listdir(providers_dir)):
                 algorithm_run_method = algorithm['runMethod']
 
                 if full_code:
-                    with open(os.path.join(quick_start_py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
-                        f.write(full_code)
+                    # with open(os.path.join(quick_start_py_dir, f'{provider_name}-{algorithm_name}-{algorithm_run_method}.py'), "w") as f:
+                    #     f.write(full_code)
 
                     temp = full_code.splitlines()
                     # make a copy here because we want to drop the unwanted 'code' entry without
