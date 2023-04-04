@@ -1,6 +1,6 @@
-id: runtimes
-title: Quantum Runtimes
-description: Cloud services that allow quantum-classical hybrid computations. Sometimes called near-team computing, this computation model allows relative quick iteration between classical and quantum processors, which is useful for variational algorithms. 
+id: primitives
+title: Native Primitives
+description: Services or software packages that provide native support to Qiskit Primitives. Qiskit Primitives provide a set of interfaces for performing operations such as sampling (Sampler) and estimating (Estimator) that forms the fundamental building blocks of quantum algorithm development.
 providers:
   - title: IBM Qiskit Runtime
     description: Qiskit Runtime is a quantum computing service and programming model
@@ -23,4 +23,23 @@ providers:
         service = QiskitRuntimeService()
         backend = service.backend("ibmq_qasm_simulator")
         sampler = Sampler(session=backend)
+  - title: Aer
+    description: Aer is a high performance simulator for quantum circuits that includes noise models.
+    installation: pip install qiskit-aer
+    websiteCta:
+      label: null
+      url: null
+    docsCta:
+      label: Docs
+      url: https://qiskit.org/ecosystem/aer/
+    sourceCta:
+      label: GitHub
+      url: https://github.com/Qiskit/qiskit-aer
+    code:
+      sampler: |-
+        from qiskit_aer.primitives import Sampler
+        sampler = Sampler()
+      backend: |-
+        from qiskit_aer import AerSimulator
+        backend = AerSimulator()
 
