@@ -29,7 +29,7 @@
           "fullCode": [
             "from qiskit_ibm_runtime import QiskitRuntimeService, Sampler",
             "service = QiskitRuntimeService()",
-            "backend = service.backend(\"ibmq_qasm_simulator\")",
+            "backend = service.backend(\"ibm_perth\")",
             "sampler = Sampler(session=backend)",
             "&nbsp;",
             "# Build circuit",
