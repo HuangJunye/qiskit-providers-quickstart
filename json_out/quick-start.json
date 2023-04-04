@@ -22,9 +22,6 @@
         "name": "Transpiling",
         "runMethod": "backend",
         "fullCode": [
-          "from qiskit.providers.basicaer import BasicAer",
-          "backend = BasicAer.get_backend('qasm_simulator')",
-          "&nbsp;",
           "# Build circuit",
           "from qiskit.circuit.library import QuantumVolume",
           "circuit = QuantumVolume(5)",

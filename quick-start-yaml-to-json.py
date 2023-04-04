@@ -51,7 +51,9 @@ for category in sorted(os.listdir(providers_dir)):
                                 "transpiled_circuit = transpile(circuit, basis_gates=['sx', 'rz', 'cx'])",
                                 "transpiled_circuit.draw()"
                             ]
-                        if provider['code'].get('backend'):
+                            # do not use basic aer
+                            provider_setup_code = []
+                        elif provider['code'].get('backend'):
                             provider_setup_code = provider['code']['backend'].splitlines()
                         else:
                             algorithm_code = []
@@ -68,7 +70,10 @@ for category in sorted(os.listdir(providers_dir)):
                         provider_setup_code.insert(1, 'from qiskit.primitives import BackendSampler')
                         provider_setup_code.append('sampler = BackendSampler(backend)')
 
-                full_code = provider_setup_code + [''] + algorithm_code
+                if provider_setup_code:
+                    full_code = provider_setup_code + [''] + algorithm_code
+                else:
+                    full_code = algorithm_code
 
                 # input code example for each provider uses sampler by default
                 # if the algorithm runs with estimator, we replace 'sampler' with 'estimator'
