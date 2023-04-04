@@ -21,7 +21,7 @@ providers:
       sampler: |-
         from qiskit_ibm_runtime import QiskitRuntimeService, Sampler
         service = QiskitRuntimeService()
-        backend = service.backend("ibmq_qasm_simulator")
+        backend = service.backend("ibm_perth")
         sampler = Sampler(session=backend)
   - title: Aer
     description: Aer is a high performance simulator for quantum circuits that includes noise models.

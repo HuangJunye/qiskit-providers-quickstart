@@ -18,7 +18,7 @@ providers:
       backend: |-
         from qiskit_aqt_provider import AQTProvider
         aqt = AQTProvider('MY_TOKEN')
-        backend = aqt.get_backend('aqt_qasm_simulator')
+        backend = aqt.get_backend('aqt_innsbruck')
   - title: IBM Quantum
     description: IBM Quantum offers both open and premium access to a wide variety of quantum systems. All quantum systems deployed by IBM Quantum are based on superconducting qubit technology, as the control and scalability of this technology pave a clear path to achieving quantum advantage with these systems.
     installation: pip install qiskit-ibm-provider
@@ -87,7 +87,7 @@ providers:
       backend: |-
         from qiskit_quantinuum import Quantinuum
         Quantinuum.save_account("username@company.com")
-        backend = Quantinuum.get_backend("DEVICE_NAME")
+        backend = Quantinuum.get_backend("deadhead")
   - title: Rigetti
     description: Rigetti offers access to universal, gate-model machines based on tunable superconducting qubits.
     installation: pip install qiskit-rigetti
@@ -104,4 +104,4 @@ providers:
       backend: |-
         from qiskit_rigetti import RigettiQCSProvider
         provider = RigettiQCSProvider()
-        backend = provider.get_backend(name="Aspen-9")
+        backend = provider.get_backend("Aspen-11")
