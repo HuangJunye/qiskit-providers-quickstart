@@ -109,9 +109,9 @@ for category in sorted(os.listdir(providers_dir)):
 # 1) sort alphabetically
 # 2) remove duplicate entries from different categories
 
-sorted_quick_start_list = sorted(quick_start_list, key=lambda d:d['title'].lower())
+quick_start_list.sort(key=lambda d:d['title'].lower())
 
-for provider in sorted_quick_start_list:
+for provider in quick_start_list:
     print(provider['title'])
 
 with open(os.path.join(json_dir, "quick-start.json"), "w") as json_out:
