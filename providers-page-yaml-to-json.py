@@ -30,7 +30,11 @@ for category in os.listdir(providers_dir):
             provider_setup_code = []
             provider['codeExamples'] = []
 
-            if provider['code'].get('backend'):
+            if category_dict['id'] == 'primitives':
+                # use sampler.run for primitives
+                algorithm = algorithms_list[2]
+                provider_setup_code = provider['code']['sampler'].splitlines()
+            elif provider['code'].get('backend'):
                 # run bell circuit with backend.run
                 algorithm = algorithms_list[0]
                 provider_setup_code = provider['code']['backend'].splitlines()

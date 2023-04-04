@@ -23,10 +23,13 @@ for category in sorted(os.listdir(providers_dir)):
         for provider in providers_list:
 
             # add 'pip install qiskit' to all installation command
-            provider['installation'] = [
-                'pip install qiskit',
-                provider['installation']
-            ]
+            if provider['title'] == 'Qiskit Stand-alone':
+                provider['installation'] = ['pip install qiskit']
+            else: 
+                provider['installation'] = [
+                    'pip install qiskit',
+                    provider['installation']
+                ]
             
             provider_setup_code = []
             provider['codeExamples'] = []
@@ -36,7 +39,21 @@ for category in sorted(os.listdir(providers_dir)):
 
                 if algorithm['runMethod'] == 'backend':
                     if algorithm['name'] == 'Transpiling':
-                        if provider['code'].get('backend'):
+                        if provider['title'] == 'Qiskit Stand-alone':
+                            # specify basis gates for qiskit stand-alone
+                            algorithm_code = [
+                                "# Build circuit",
+                                "from qiskit.circuit.library import QuantumVolume",
+                                "circuit = QuantumVolume(5)",
+                                "",
+                                "# Transpile circuit",
+                                "from qiskit import transpile",
+                                "transpiled_circuit = transpile(circuit, basis_gates=['sx', 'rz', 'cx'])",
+                                "transpiled_circuit.draw()"
+                            ]
+                            # do not use basic aer
+                            provider_setup_code = []
+                        elif provider['code'].get('backend'):
                             provider_setup_code = provider['code']['backend'].splitlines()
                         else:
                             algorithm_code = []
@@ -53,7 +70,10 @@ for category in sorted(os.listdir(providers_dir)):
                         provider_setup_code.insert(1, 'from qiskit.primitives import BackendSampler')
                         provider_setup_code.append('sampler = BackendSampler(backend)')
 
-                full_code = provider_setup_code + [''] + algorithm_code
+                if provider_setup_code:
+                    full_code = provider_setup_code + [''] + algorithm_code
+                else:
+                    full_code = algorithm_code
 
                 # input code example for each provider uses sampler by default
                 # if the algorithm runs with estimator, we replace 'sampler' with 'estimator'
