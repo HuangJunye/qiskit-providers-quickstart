@@ -1,6 +1,7 @@
 import os
 import yaml
 import json
+from pprint import pprint
 
 script_dir = os.path.dirname(__file__)
 yaml_dir = os.path.join(script_dir, "yaml_in")
@@ -103,6 +104,15 @@ for category in sorted(os.listdir(providers_dir)):
             # drop unwanted 'code' entry
             del provider['code']
             quick_start_list.append(provider)
+
+# post processing
+# 1) sort alphabetically
+# 2) remove duplicate entries from different categories
+
+sorted_quick_start_list = sorted(quick_start_list, key=lambda d:d['title'].lower())
+
+for provider in sorted_quick_start_list:
+    print(provider['title'])
 
 with open(os.path.join(json_dir, "quick-start.json"), "w") as json_out:
     print(f"We have {len(quick_start_list)} providers.")
